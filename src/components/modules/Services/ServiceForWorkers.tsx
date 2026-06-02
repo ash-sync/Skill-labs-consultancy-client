@@ -44,7 +44,7 @@ function ServiceForWorkers() {
   return (
     <section className="bg-[#f5f5f5] py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* t2 */}
+        
         <div className="flex items-center gap-4 mb-8">
           <h2 className="text-[#f97316] text-xl md:text-2xl font-bold whitespace-nowrap">
             For Students
@@ -53,7 +53,7 @@ function ServiceForWorkers() {
           <div className="h-[1px] w-full bg-gray-300" />
         </div>
 
-       {/* .. */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map((item, index) => {
             const Icon = item.icon
@@ -73,7 +73,7 @@ function ServiceForWorkers() {
                   p-0
                 "
               >
-                {/* Image */}
+                
                 <div className="h-[140px] w-full overflow-hidden">
                   <img
                     src={item.image}
@@ -82,7 +82,7 @@ function ServiceForWorkers() {
                   />
                 </div>
 
-                {/* .. */}
+                
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Icon className="h-4 w-4 text-gray-700" />
@@ -115,7 +115,7 @@ function ServiceForWorkers() {
               </Card>
             )
           })}
-          {/* ... */}
+          
         </div>
       </div>
     </section>

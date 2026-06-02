@@ -18,7 +18,7 @@ function PartnersSection() {
             Universities & Partners
           </h2>
         </div>
-{/* //kd */}
+
         <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-4 w-[140px] h-[80px] flex items-center justify-center">
             <img

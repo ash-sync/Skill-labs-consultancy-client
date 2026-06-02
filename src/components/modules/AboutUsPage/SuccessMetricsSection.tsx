@@ -27,7 +27,7 @@ function SuccessMetricsSection() {
         <section className="bg-[#f3f3f3] py-16">
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="grid grid-cols-4 gap-5">
-          {/* big blue card */}
+          
           <div className="bg-[#2563eb] rounded-[12px] p-6 flex flex-col justify-between h-[180px] col-span-2">
             <div>
               <p className="text-white font-semibold text-[20px]">

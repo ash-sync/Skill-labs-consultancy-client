@@ -34,7 +34,7 @@ function OneStopSolutionSection() {
   return (
    <main className="min-h-screen bg-[#f5f5f5] px-4 py-10">
       <div className="mx-auto max-w-7xl">
-        {/* Heading */}
+        
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-black">
             The{" "}
@@ -48,9 +48,9 @@ function OneStopSolutionSection() {
           </p>
         </div>
 
-        {/* Main Grid */}
+        
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {/* Left Cards */}
+          
           <div className="flex flex-col gap-6">
             <ServiceCard
               icon={<ClipboardCheck className="h-5 w-5 text-teal-500" />}
@@ -72,7 +72,7 @@ function OneStopSolutionSection() {
             />
           </div>
 
-          {/* Center Timeline */}
+          
           <div className="relative overflow-hidden rounded-2xl bg-[#2d5cff] p-6 text-white shadow-lg">
             <div className="absolute left-10 top-10 h-[75%] w-[2px] bg-white/30" />
 
@@ -110,7 +110,7 @@ function OneStopSolutionSection() {
             </div>
           </div>
 
-          {/* Right Cards */}
+          
           <div className="flex flex-col gap-6">
             <ServiceCard
               icon={<FileText className="h-5 w-5 text-teal-500" />}

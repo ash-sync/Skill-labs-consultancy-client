@@ -1,42 +1,18 @@
-import Consultant1 from "@/assets/images/consultants/expertCounsellers/Consultant1.png"
-import Consultant2 from "@/assets/images/consultants/expertCounsellers/Consultant2.png"
-import Consultant3 from "@/assets/images/consultants/expertCounsellers/Consultant3.png"
 import tickIcon from "@/assets/images/consultants/expertCounsellers/TickIcon.png"
+import { useGetExpertsQuery } from "../../../redux/api/dashboard.api";
 
 function ExpertCounsellors() {
-  const counsellors = [
-    {
-      image: Consultant1,
-      name: "Dr. Sarah Chen",
-      role: "Senior Academic Advisor",
-      description:
-        "Ex-Admissions Officer with 15+ years experience in Ivy League placements and research grants.",
-      tags: ["STEM", "PhD Programs"],
-    },
-    {
-      image: Consultant2,
-      name: "Marcus Thorne",
-      role: "Visa & Immigration Lead",
-      description:
-        "Specializing in Tier 1 and O-1 visa categories for high-skilled professionals and founders.",
-      tags: ["Immigration", "Legal"],
-    },
-    {
-      image: Consultant3,
-      name: "Elena Rodriguez",
-      role: "Career Strategist",
-      description:
-        "Helping international graduates secure Fortune 500 placements through strategic networking.",
-      tags: ["Placement", "Global Tips"],
-    },
-  ]
+  const { data: allExperts = [] } = useGetExpertsQuery({});
+  
+
+  const counsellors = allExperts.filter((expert: any) => expert.category === 'Our Global Consultants');
 
   return (
    <div className="w-full min-h-screen bg-[#ececec]  py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-        {counsellors.map((person, index) => (
+        {counsellors.map((person: any, index: number) => (
           <div 
-            key={index} 
+            key={person._id || index} 
             className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full max-w-[380px] mx-auto w-full"
           >
             
@@ -72,7 +48,7 @@ function ExpertCounsellors() {
 
               
               <div className="flex flex-wrap gap-2 pt-2">
-                {person.tags.map((tag, tagIndex) => (
+                {person.tags && person.tags.map((tag: string, tagIndex: number) => (
                   <span 
                     key={tagIndex} 
                     className="px-3 py-1 bg-[#EBF5FF] text-[#2563EB] text-xs font-medium rounded-full"
