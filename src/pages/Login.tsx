@@ -4,6 +4,7 @@ import { setUser } from "../redux/features/auth/authSlice";
 import { useLoginMutation } from "../redux/features/auth/auth.api";
 import { useNavigate } from "react-router";
 import { Lock, Mail, Eye, EyeOff, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -21,6 +22,7 @@ export default function Login() {
 
     if (!email || !password) {
       setLoginError("Please enter both email and password.");
+      toast.error("Please enter both email and password.");
       return;
     }
 
@@ -56,15 +58,17 @@ export default function Login() {
             token,
           })
         );
+        toast.success("Welcome back! Logged in successfully.");
         navigate("/admin/dashboard");
       } else {
         setLoginError("Login failed. Invalid credentials.");
+        toast.error("Login failed. Invalid credentials.");
       }
     } catch (err: any) {
       console.error("Login error:", err);
-      setLoginError(
-        err?.data?.message || err?.message || "Invalid email or password."
-      );
+      const errMsg = err?.data?.message || err?.message || "Invalid email or password.";
+      setLoginError(errMsg);
+      toast.error(errMsg);
     }
   };
 

@@ -5,6 +5,7 @@ import {
 } from "../../redux/api/dashboard.api";
 import { Check, X, Trash2, Calendar, Mail, User, ShieldAlert, BookmarkCheck } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function ManageBookings() {
   const { data: bookings = [], isLoading, error } = useGetBookingsQuery({});
@@ -16,8 +17,9 @@ export default function ManageBookings() {
   const handleUpdateStatus = async (id: string, status: "approved" | "rejected") => {
     try {
       await updateStatus({ id, status }).unwrap();
+      toast.success(`Booking status updated to ${status}.`);
     } catch (err: any) {
-      alert(err?.data?.message || "Failed to update booking status.");
+      toast.error(err?.data?.message || "Failed to update booking status.");
     }
   };
 
@@ -25,8 +27,9 @@ export default function ManageBookings() {
     if (confirm("Are you sure you want to delete this booking request?")) {
       try {
         await deleteBooking(id).unwrap();
+        toast.success("Booking successfully deleted.");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete booking.");
+        toast.error(err?.data?.message || "Failed to delete booking.");
       }
     }
   };

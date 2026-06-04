@@ -6,6 +6,7 @@ import {
   useDeleteServiceMutation,
 } from "../../redux/api/dashboard.api";
 import { Plus, Pencil, Trash2, X, Upload, Loader2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ManageServices() {
   const { data: services = [], isLoading, error } = useGetServicesQuery({});
@@ -50,8 +51,9 @@ export default function ManageServices() {
     if (confirm("Are you sure you want to delete this service?")) {
       try {
         await deleteService(id).unwrap();
+        toast.success("Service deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete service.");
+        toast.error(err?.data?.message || "Failed to delete service.");
       }
     }
   };
@@ -76,13 +78,17 @@ export default function ManageServices() {
     try {
       if (editingId) {
         await updateService({ id: editingId, formData }).unwrap();
+        toast.success("Service updated successfully!");
       } else {
         await createService(formData).unwrap();
+        toast.success("Service created successfully!");
       }
       setIsOpen(false);
       resetForm();
     } catch (err: any) {
-      setFormError(err?.data?.message || "An error occurred while saving the service.");
+      const errMsg = err?.data?.message || "An error occurred while saving the service.";
+      setFormError(errMsg);
+      toast.error(errMsg);
     }
   };
 

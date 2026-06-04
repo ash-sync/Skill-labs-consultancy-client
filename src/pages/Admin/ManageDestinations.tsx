@@ -6,6 +6,7 @@ import {
   useDeleteDestinationMutation,
 } from "../../redux/api/dashboard.api";
 import { Plus, Pencil, Trash2, X, Loader2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 interface IInstitute {
   name: string;
@@ -61,8 +62,9 @@ export default function ManageDestinations() {
     if (confirm("Are you sure you want to delete this destination?")) {
       try {
         await deleteDestination(id).unwrap();
+        toast.success("Destination deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete destination.");
+        toast.error(err?.data?.message || "Failed to delete destination.");
       }
     }
   };
@@ -103,13 +105,17 @@ export default function ManageDestinations() {
     try {
       if (editingId) {
         await updateDestination({ id: editingId, formData }).unwrap();
+        toast.success("Destination updated successfully!");
       } else {
         await createDestination(formData).unwrap();
+        toast.success("Destination created successfully!");
       }
       setIsOpen(false);
       resetForm();
     } catch (err: any) {
-      setFormError(err?.data?.message || "Failed to save destination.");
+      const errMsg = err?.data?.message || "Failed to save destination.";
+      setFormError(errMsg);
+      toast.error(errMsg);
     }
   };
 

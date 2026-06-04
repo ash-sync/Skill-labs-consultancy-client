@@ -6,6 +6,7 @@ import {
   useDeleteCountryMutation,
 } from "../../redux/api/dashboard.api";
 import { Plus, Pencil, Trash2, X, Loader2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ManageCountries() {
   const { data: countries = [], isLoading, error } = useGetCountriesQuery({});
@@ -55,8 +56,9 @@ export default function ManageCountries() {
     if (confirm("Are you sure you want to delete this country?")) {
       try {
         await deleteCountry(id).unwrap();
+        toast.success("Country deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete country.");
+        toast.error(err?.data?.message || "Failed to delete country.");
       }
     }
   };
@@ -93,6 +95,7 @@ export default function ManageCountries() {
             institutes,
           },
         }).unwrap();
+        toast.success("Country updated successfully!");
       } else {
         const createFormData = new FormData();
         createFormData.append("name", name);
@@ -104,11 +107,14 @@ export default function ManageCountries() {
         }
 
         await createCountry(createFormData).unwrap();
+        toast.success("Country created successfully!");
       }
       setIsOpen(false);
       resetForm();
     } catch (err: any) {
-      setFormError(err?.data?.message || "An error occurred while saving country.");
+      const errMsg = err?.data?.message || "An error occurred while saving country.";
+      setFormError(errMsg);
+      toast.error(errMsg);
     }
   };
 

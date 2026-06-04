@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Award, Loader2 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useGetServicesQuery } from "../../../redux/api/dashboard.api";
-import { Link } from "react-router";
 
 function ServicesForStudent() {
   const { data: services = [], isLoading, error } = useGetServicesQuery({});

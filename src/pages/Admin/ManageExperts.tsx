@@ -6,6 +6,7 @@ import {
   useDeleteExpertMutation,
 } from "../../redux/api/dashboard.api";
 import { Plus, Pencil, Trash2, X, Loader2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ManageExperts() {
   const { data: experts = [], isLoading, error } = useGetExpertsQuery({});
@@ -56,8 +57,9 @@ export default function ManageExperts() {
     if (confirm("Are you sure you want to delete this expert?")) {
       try {
         await deleteExpert(id).unwrap();
+        toast.success("Expert deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete expert.");
+        toast.error(err?.data?.message || "Failed to delete expert.");
       }
     }
   };
@@ -87,13 +89,17 @@ export default function ManageExperts() {
     try {
       if (editingId) {
         await updateExpert({ id: editingId, expertData: formData }).unwrap();
+        toast.success("Expert updated successfully!");
       } else {
         await createExpert(formData).unwrap();
+        toast.success("Expert created successfully!");
       }
       setIsOpen(false);
       clearAllFields();
     } catch (err: any) {
-      setFormError(err?.data?.message || "Failed to save expert.");
+      const errMsg = err?.data?.message || "Failed to save expert.";
+      setFormError(errMsg);
+      toast.error(errMsg);
     }
   };
 

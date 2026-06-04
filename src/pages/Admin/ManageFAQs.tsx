@@ -6,6 +6,7 @@ import {
   useDeleteFaqMutation,
 } from "../../redux/api/dashboard.api";
 import { Plus, Pencil, Trash2, X, Loader2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ManageFAQs() {
   const { data: faqs = [], isLoading, error } = useGetFaqsQuery({});
@@ -48,8 +49,9 @@ export default function ManageFAQs() {
     if (confirm("Are you sure you want to delete this FAQ?")) {
       try {
         await deleteFaq(id).unwrap();
+        toast.success("FAQ deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete FAQ.");
+        toast.error(err?.data?.message || "Failed to delete FAQ.");
       }
     }
   };
@@ -72,13 +74,17 @@ export default function ManageFAQs() {
     try {
       if (editingId) {
         await updateFaq({ id: editingId, faqData: payload }).unwrap();
+        toast.success("FAQ updated successfully!");
       } else {
         await createFaq(payload).unwrap();
+        toast.success("FAQ created successfully!");
       }
       setIsOpen(false);
       resetForm();
     } catch (err: any) {
-      setFormError(err?.data?.message || "An error occurred while saving FAQ.");
+      const errMsg = err?.data?.message || "An error occurred while saving FAQ.";
+      setFormError(errMsg);
+      toast.error(errMsg);
     }
   };
 

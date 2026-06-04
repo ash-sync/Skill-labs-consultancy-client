@@ -10,7 +10,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { useCreateBookingMutation } from '../../../redux/api/dashboard.api';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 export default function ConsultationBooking() {
   const [formData, setFormData] = useState({

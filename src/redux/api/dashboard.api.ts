@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseApi } from "./baseApi";
 
 const dashboardApi = baseApi.injectEndpoints({
@@ -136,6 +137,15 @@ const dashboardApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["booking"],
     }),
+
+    createBooking2: builder.mutation({
+      query: (bookingData) => ({
+        url: "/booking/create-booking2",
+        method: "POST",
+        body: bookingData,
+      }),
+      invalidatesTags: ["booking"],
+    }),
     updateBookingStatus: builder.mutation({
       query: ({ id, status }) => ({
         url: `/booking/status/${id}`,
@@ -246,4 +256,5 @@ export const {
   useCreateExpertMutation,
   useUpdateExpertMutation,
   useDeleteExpertMutation,
+    useCreateBooking2Mutation,
 } = dashboardApi;

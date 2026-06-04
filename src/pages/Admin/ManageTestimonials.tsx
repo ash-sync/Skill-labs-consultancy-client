@@ -4,6 +4,7 @@ import {
   useDeleteTestimonialMutation,
 } from "../../redux/api/dashboard.api";
 import { Check, X, Trash2, Star, MessageSquare, ShieldAlert } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ManageTestimonials() {
   const { data: testimonials = [], isLoading, error } = useGetTestimonialsQuery({});
@@ -13,8 +14,9 @@ export default function ManageTestimonials() {
   const handleUpdateStatus = async (id: string, status: "approved" | "rejected" | "pending") => {
     try {
       await updateStatus({ id, status }).unwrap();
+      toast.success(`Testimonial status updated to ${status}!`);
     } catch (err: any) {
-      alert(err?.data?.message || "Failed to update review status.");
+      toast.error(err?.data?.message || "Failed to update review status.");
     }
   };
 
@@ -22,8 +24,9 @@ export default function ManageTestimonials() {
     if (confirm("Are you sure you want to delete this testimonial?")) {
       try {
         await deleteTestimonial(id).unwrap();
+        toast.success("Testimonial deleted successfully!");
       } catch (err: any) {
-        alert(err?.data?.message || "Failed to delete testimonial.");
+        toast.error(err?.data?.message || "Failed to delete testimonial.");
       }
     }
   };

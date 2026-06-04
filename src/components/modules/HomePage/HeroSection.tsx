@@ -2,6 +2,7 @@
 import {
   CalendarDays,
   ChevronDown,
+  Phone,
   UserRound,
 } from "lucide-react";
 
@@ -9,19 +10,21 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCreateBookingMutation } from "../../../redux/api/dashboard.api";
+import { toast } from "sonner";
 
 function HeroSection() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [service, setService] = useState("");
+  const [phone, setPhone] = useState("");
   
   const [createBooking, { isLoading }] = useCreateBookingMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !service || !selectedDate) {
-      alert("Please fill all fields");
+    if (!name || !email || !service || !selectedDate || !phone) {
+      toast.error("Please fill all fields");
       return;
     }
 
@@ -29,17 +32,19 @@ function HeroSection() {
       await createBooking({
         name,
         email,
+        phone,
         service,
         time: selectedDate.toISOString(),
       }).unwrap();
       
-      alert("Booking submitted successfully!");
+      toast.success("Booking submitted successfully!");
       setName("");
       setEmail("");
       setService("");
       setSelectedDate(new Date());
+      setPhone("");
     } catch (err: any) {
-      alert(err?.data?.message || "Failed to submit booking");
+      toast.error(err?.data?.message || "Failed to submit booking");
     }
   };
 
@@ -138,6 +143,27 @@ function HeroSection() {
                 </div>
               </div>
 
+ <div className="mb-7">
+                <label className="block text-[#374151] font-medium mb-3">
+                  Phone
+                </label>
+
+                <div className="flex items-center border border-gray-200 rounded-2xl px-5 py-4">
+                  <input
+                    type="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Enter your phone number"
+                    className="w-full outline-none text-gray-700 bg-transparent"
+                    required
+                  />
+
+                  <Phone
+                    className="text-[#14b8a6]"
+                    size={22}
+                  />
+                </div>
+              </div>
               
               <div className="mb-7">
                 <label className="block text-[#374151] font-medium mb-3">
