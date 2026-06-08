@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
@@ -148,9 +149,6 @@ export default function Login() {
           </div>
 
           
-          <div className="p-3 bg-blue-500/5 rounded-xl border border-blue-500/10 text-xs text-blue-300/80 leading-relaxed text-center">
-            Demo Credentials: <span className="font-semibold text-white">admin@gmail.com</span> / <span className="font-semibold text-white">admin123</span>
-          </div>
 
           
           <button
