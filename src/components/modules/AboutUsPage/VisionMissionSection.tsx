@@ -8,7 +8,7 @@ function VisionMissionSection() {
          <section className="w-full bg-white py-20">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* Section Heading */}
+        
         <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-[3px] text-blue-600">
             Our Purpose
@@ -19,10 +19,10 @@ function VisionMissionSection() {
           </h2>
         </div>
 
-        {/* Cards */}
+        
         <div className="grid gap-6 md:grid-cols-2">
           
-          {/* Vision Card */}
+          
           <div className="rounded-2xl border border-gray-200 bg-[#F9FAFB] p-8 shadow-sm transition hover:shadow-md">
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
               <img
@@ -43,7 +43,7 @@ function VisionMissionSection() {
             </p>
           </div>
 
-          {/* Mission Card */}
+          
           <div className="rounded-2xl bg-[#2563EB] p-8 text-white shadow-lg transition hover:shadow-xl">
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
               <img

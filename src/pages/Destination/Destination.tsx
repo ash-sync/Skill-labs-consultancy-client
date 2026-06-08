@@ -1,25 +1,35 @@
 import DestinationCTA from '@/components/modules/Destination/DestinationCTA'
 import GlobalAcademicHero from '@/components/modules/Destination/GlobalAcademicHero'
-import MalaysiaInfoCards from '@/components/modules/Destination/MalaysiaInfoCards'
 import StudyDestinationSection from '@/components/modules/Destination/StudyDestinationSection'
-import StudyInCanadaSection from '@/components/modules/Destination/StudyInCanadaSection'
-import StudyInMalaysia from '@/components/modules/Destination/StudyInMalaysia'
-import StudyInUnitedKingdom from '@/components/modules/Destination/StudyInUnitedKingdom'
-import TopInstitutionsAndVisa from '@/components/modules/Destination/TopInstitutionsAndVisa'
-import UniversityVisaSection from '@/components/modules/Destination/UniversityVisaSection'
 import React from 'react'
+import { useGetCountriesQuery } from '../../redux/api/dashboard.api'
+import { Loader2 } from 'lucide-react'
 
 function Destination() {
+  const { data: countries = [], isLoading, error } = useGetCountriesQuery({});
+
   return (
     <div>
         <GlobalAcademicHero></GlobalAcademicHero>
-        <StudyDestinationSection></StudyDestinationSection>
-        <UniversityVisaSection></UniversityVisaSection>
-        <StudyInCanadaSection></StudyInCanadaSection>
-        <StudyInUnitedKingdom></StudyInUnitedKingdom>
-        <TopInstitutionsAndVisa></TopInstitutionsAndVisa>
-        <StudyInMalaysia></StudyInMalaysia>
-        <MalaysiaInfoCards></MalaysiaInfoCards>
+
+        {isLoading ? (
+          <div className="flex items-center justify-center py-32 bg-[#f3f3f3]">
+            <Loader2 className="w-10 h-10 animate-spin text-orange-500" />
+          </div>
+        ) : error ? (
+          <div className="flex items-center justify-center py-32 bg-[#f3f3f3]">
+            <p className="text-red-500 font-semibold">Failed to load destination countries.</p>
+          </div>
+        ) : countries.length === 0 ? (
+          <div className="flex items-center justify-center py-32 bg-[#f3f3f3]">
+            <p className="text-gray-500 font-semibold">No countries available yet.</p>
+          </div>
+        ) : (
+          countries.map((country: any, index: number) => (
+            <StudyDestinationSection key={country._id} country={country} index={index} />
+          ))
+        )}
+
         <DestinationCTA></DestinationCTA>
     </div>
   )

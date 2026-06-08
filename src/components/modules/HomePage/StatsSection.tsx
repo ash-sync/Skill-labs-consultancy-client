@@ -11,7 +11,7 @@ function StatsSection() {
 
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
 
-        {/* Stat 1 */}
+        
         <div className="border-r border-white/30 last:border-none flex flex-col items-center">
 
           <img
@@ -29,7 +29,7 @@ function StatsSection() {
           </p>
         </div>
 
-        {/* Stat 2 */}
+        
         <div className="border-r border-white/30 last:border-none flex flex-col items-center">
 
           <img
@@ -47,7 +47,7 @@ function StatsSection() {
           </p>
         </div>
 
-        {/* Stat 3 */}
+        
         <div className="border-r border-white/30 last:border-none flex flex-col items-center">
 
           <img
@@ -65,7 +65,7 @@ function StatsSection() {
           </p>
         </div>
 
-        {/* Stat 4 */}
+        
         <div className="flex flex-col items-center">
 
           <img

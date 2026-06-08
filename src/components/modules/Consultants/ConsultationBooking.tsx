@@ -6,8 +6,11 @@ import {
   Mail, 
   Layers, 
   Calendar, 
-  ArrowRight 
+  ArrowRight,
+  ChevronDown
 } from 'lucide-react';
+import { useCreateBookingMutation } from '../../../redux/api/dashboard.api';
+import { toast } from 'sonner';
 
 export default function ConsultationBooking() {
   const [formData, setFormData] = useState({
@@ -18,9 +21,36 @@ export default function ConsultationBooking() {
     time: ''
   });
 
-  const handleSubmit = (e) => {
+  const [createBooking, { isLoading }] = useCreateBookingMutation();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
+    if (!formData.fullName || !formData.email || !formData.serviceType || !formData.date || !formData.time) {
+      toast.error("Please fill all fields");
+      return;
+    }
+
+    try {
+      const combinedTime = new Date(`${formData.date}T${formData.time}`).toISOString();
+      await createBooking({
+        name: formData.fullName,
+        email: formData.email,
+        service: formData.serviceType,
+        time: combinedTime,
+      }).unwrap();
+
+      toast.success('Booking submitted successfully!');
+      setFormData({
+        fullName: '',
+        email: '',
+        serviceType: 'Academic Admissions',
+        date: '',
+        time: ''
+      });
+    } catch (err: any) {
+      toast.error(err?.data?.message || 'Failed to submit booking');
+    }
   };
 
   return (
@@ -111,22 +141,36 @@ export default function ConsultationBooking() {
                   Service Type
                 </label>
                 <div className="relative">
-                  <Layers className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none" />
-                  <select
-                    className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-10 py-3 appearance-none border-0 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all cursor-pointer"
-                    value={formData.serviceType}
-                    onChange={(e) => setFormData({...formData, serviceType: e.target.value})}
+                  <Layers className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none z-10" />
+                  
+                  <div 
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-10 py-3 border border-transparent hover:border-gray-200 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all cursor-pointer flex items-center justify-between shadow-sm"
                   >
-                    <option value="Academic Admissions">Academic Admissions</option>
-                    <option value="Visa Consultation">Visa & Immigration Consulting</option>
-                    <option value="Career Strategy">Career Strategy Session</option>
-                  </select>
-                  {/* Custom Arrow Indicator */}
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#4B5563]">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <span>{formData.serviceType}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#4B5563] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                   </div>
+
+                  {isDropdownOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden z-20 py-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                      {["Academic Admissions", "Visa & Immigration Consulting", "Career Strategy Session"].map((service) => (
+                        <div
+                          key={service}
+                          onClick={() => {
+                            setFormData({...formData, serviceType: service});
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`px-4 py-3 text-sm cursor-pointer transition-colors ${
+                            formData.serviceType === service 
+                              ? 'bg-blue-50 text-blue-700 font-semibold' 
+                              : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                          }`}
+                        >
+                          {service}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -168,9 +212,10 @@ export default function ConsultationBooking() {
               
               <button
                 type="submit"
-                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-sm rounded-xl py-4 px-6 flex items-center justify-center gap-2 transition-colors duration-200 mt-2 shadow-lg shadow-blue-500/20"
+                disabled={isLoading}
+                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-sm rounded-xl py-4 px-6 flex items-center justify-center gap-2 transition-colors duration-200 mt-2 shadow-lg shadow-blue-500/20 disabled:opacity-70"
               >
-                Confirm Booking Request
+                {isLoading ? "Submitting..." : "Confirm Booking Request"}
                 <ArrowRight className="w-4 h-4" />
               </button>
 

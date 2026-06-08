@@ -1,27 +1,12 @@
 import { useState } from "react";
 import faqImage from "../../../assets/images/Faq.png";
+import { useGetFaqsQuery } from "../../../redux/api/dashboard.api";
+import type { FAQ } from "@/types";
 
 function FaqSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  const faqs = [
-    {
-      q: "What are the visa requirements?",
-      a: "Visa requirements vary by destination country and program type. Our consultants will guide you through all required documents, financial proofs, and language test scores specific to your chosen destination.",
-    },
-    {
-      q: "How long does the processing take?",
-      a: "Processing time varies by country and visa type. Typically it ranges from 2–8 weeks. We keep you updated at every step of the process.",
-    },
-    {
-      q: "Do you provide scholarships?",
-      a: "Yes, we help identify scholarship and fee waiver opportunities available at partner universities for eligible students.",
-    },
-    {
-      q: "What tests are required?",
-      a: "Most destinations require IELTS or equivalent English proficiency tests. Some programs may also require GMAT, GRE, or SAT depending on the level and institution.",
-    },
-  ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { data: faqs = [], isLoading } = useGetFaqsQuery({});
 
   return (
     <section className="bg-[#f5f5f5] py-12 sm:py-16 px-4 sm:px-6 lg:px-12 overflow-hidden">
@@ -38,7 +23,7 @@ function FaqSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-3">
-            {faqs.map((f, i) => (
+            {faqs.map((f: FAQ, i: number) => (
               <div
                 key={i}
                 className="bg-white border border-[#e8e8f0] rounded-xl overflow-hidden"
@@ -48,7 +33,7 @@ function FaqSection() {
                   className="w-full flex items-center justify-between gap-4 px-4 sm:px-5 py-4 text-left"
                 >
                   <span className="text-sm sm:text-[15px] font-semibold text-dark font-poppins">
-                    {f.q}
+                    {f.question}
                   </span>
 
                   <span className="text-xl text-gray-400 flex-shrink-0">
@@ -65,7 +50,7 @@ function FaqSection() {
                 >
                   <div className="overflow-hidden">
                     <p className="px-4 sm:px-5 pb-4 text-xs sm:text-sm leading-relaxed text-gray-500">
-                      {f.a}
+                      {f.answer}
                     </p>
                   </div>
                 </div>

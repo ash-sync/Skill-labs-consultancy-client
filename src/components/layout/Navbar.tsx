@@ -12,23 +12,25 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Link } from "react-router";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logout } from "@/redux/features/auth/authSlice";
 
 function Navbar() {
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.auth);
+
   const navigationLinks = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
     { href: "/services", label: "Our Services" },
     { href: "/consultants", label: "Consultants" },
     { href: "/training", label: "Training" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
     <header className="border-b ">
       <div className="flex h-16 items-center justify-between gap-4 container mx-auto px-4">
-        {/* Left side */}
         <div className="flex items-center gap-2">
-          {/* Mobile menu trigger */}
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -67,22 +69,30 @@ function Navbar() {
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
-                    <>
-                      <NavigationMenuItem className="w-full" key={index}>
-                        <NavigationMenuLink
-                          asChild
-                          className="py-1.5 text-muted-foreground  hover:text-primary font-medium"
-                        >
-                          <Link to={link.href}>{link.label}</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    </>
+                    <NavigationMenuItem className="w-full" key={index}>
+                      <NavigationMenuLink
+                        asChild
+                        className="py-1.5 text-muted-foreground  hover:text-primary font-medium"
+                      >
+                        <Link to={link.href}>{link.label}</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
                   ))}
+                  {user && user.role === "ADMIN" && (
+                    <NavigationMenuItem className="w-full">
+                      <NavigationMenuLink
+                        asChild
+                        className="py-1.5 text-muted-foreground hover:text-primary font-medium"
+                      >
+                        <Link to="/admin/dashboard">Dashboard</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  )}
                 </NavigationMenuList>
               </NavigationMenu>
             </PopoverContent>
           </Popover>
-          {/* Main nav */}
+
           <div>
             <h3 className="text-xl text-brand">
               <span className=" font-black ">SKill</span> Labs
@@ -90,31 +100,55 @@ function Navbar() {
           </div>
         </div>
         <div className="sticky top-0 z-50  flex items-center justify-between ">
-          {/* Navigation menu */}
           <NavigationMenu className=" max-md:hidden ">
             <NavigationMenuList className=" gap-10  ">
               {navigationLinks.map((link, index) => (
-                <>
-                  <NavigationMenuItem className="w-full" key={index}>
-                    <NavigationMenuLink
-                      asChild
-                      className="h-full justify-center rounded-none border-transparent border-y-2 py-1.5 font-medium text-muted-foreground hover:border-b-primary hover:bg-transparent hover:text-primary data-[active]:border-b-primary data-[active]:bg-transparent! whitespace-nowrap"
-                    >
-                      <Link to={link.href} className="relative group">
-                        {link.label}{" "}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                </>
+                <NavigationMenuItem className="w-full" key={index}>
+                  <NavigationMenuLink
+                    asChild
+                    className="h-full justify-center rounded-none border-transparent border-y-2 py-1.5 font-medium text-muted-foreground hover:border-b-primary hover:bg-transparent hover:text-primary data-[active]:border-b-primary data-[active]:bg-transparent! whitespace-nowrap"
+                  >
+                    <Link to={link.href} className="relative group">
+                      {link.label}{" "}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               ))}
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        {/* Right side */}
-        <div className="flex items-center gap-2">
-          <Button className="bg-btn-gradient text-white font-semibold p-5 rounded-full shadow-md hover:opacity-90 transition-opacity">
-            Book Now
-          </Button>
+
+        <div className="flex items-center gap-4">
+          {user ? (
+            <>
+              {user.role === "ADMIN" && (
+                <Link
+                  to="/admin/dashboard"
+                  className="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >
+                  Dashboard
+                </Link>
+              )}
+              <button
+                onClick={() => dispatch(logout())}
+                className="text-sm font-semibold text-slate-500 hover:text-rose-600 transition-colors cursor-pointer"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              Sign In
+            </Link>
+          )}
+          <Link to="/consultants">
+            <button className="bg-btn-gradient text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:opacity-90 transition-opacity cursor-pointer">
+              Book Now
+            </button>
+          </Link>
         </div>
       </div>
     </header>

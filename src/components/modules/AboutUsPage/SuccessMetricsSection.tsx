@@ -49,41 +49,54 @@ function SuccessMetricsSection() {
                 Visa success rate across UK, USA, and Canada
               </p>
             </div>
-
-            {/* Orange card */}
-            <div
-              className="bg-[#f97316] rounded-xl p-6 flex flex-col justify-center  
-                        max-sm:col-span-1 lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-2"
-            >
-              <h3 className="text-white text-[32px] font-bold leading-none">
-                24/7
-              </h3>
-              <p className="text-white/90 text-[11px] mt-2">
-                Student Support system
-              </p>
-            </div>
-
-            {/* Gray left */}
-            <div className="bg-[#e5e7eb] rounded-xl p-6 col-start-2 col-end-3 row-start-2 row-end-3">
-              <h3 className="text-[#f97316] text-[28px] font-bold leading-none">
-                45+
-              </h3>
-              <p className="text-[#666] text-[11px] mt-2">
-                Partner Universities worldwide
-              </p>
-            </div>
-
-            {/* Gray right */}
-            <div className="bg-[#e5e7eb] rounded-xl p-6 flex items-center justify-between col-start-3 col-end-4 row-start-2 row-end-3">
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#f3f3f3] py-16">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="grid grid-cols-4 gap-5">
+            <div className="bg-[#2563eb] rounded-[12px] p-6 flex flex-col justify-between h-[180px] col-span-2">
               <div>
-                <h3 className="text-[#10b981] text-[28px] font-bold leading-none">
-                  5k+
-                </h3>
-                <p className="text-[#666] text-[11px] mt-2">
-                  Successful Placements
+                <p className="text-white font-semibold text-[20px]">
+                  Global Reach, Local Impact.
                 </p>
               </div>
-              <span className="text-[#2563eb] text-[36px]">👍</span>
+
+              {/* Orange card */}
+              <div
+                className="bg-[#f97316] rounded-xl p-6 flex flex-col justify-center  
+                        max-sm:col-span-1 lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-2"
+              >
+                <h3 className="text-white text-[32px] font-bold leading-none">
+                  24/7
+                </h3>
+                <p className="text-white/90 text-[11px] mt-2">
+                  Student Support system
+                </p>
+              </div>
+
+              {/* Gray left */}
+              <div className="bg-[#e5e7eb] rounded-xl p-6 col-start-2 col-end-3 row-start-2 row-end-3">
+                <h3 className="text-[#f97316] text-[28px] font-bold leading-none">
+                  45+
+                </h3>
+                <p className="text-[#666] text-[11px] mt-2">
+                  Partner Universities worldwide
+                </p>
+              </div>
+
+              {/* Gray right */}
+              <div className="bg-[#e5e7eb] rounded-xl p-6 flex items-center justify-between col-start-3 col-end-4 row-start-2 row-end-3">
+                <div>
+                  <h3 className="text-[#10b981] text-[28px] font-bold leading-none">
+                    5k+
+                  </h3>
+                  <p className="text-[#666] text-[11px] mt-2">
+                    Successful Placements
+                  </p>
+                </div>
+                <span className="text-[#2563eb] text-[36px]">👍</span>
+              </div>
             </div>
           </div>
         </div>

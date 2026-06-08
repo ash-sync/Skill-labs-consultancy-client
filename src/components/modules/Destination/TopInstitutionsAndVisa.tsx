@@ -33,10 +33,10 @@ function TopInstitutionsAndVisa() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6">
 
-          {/* LEFT CARD */}
+          
           <div className="bg-white border border-[#e5e5e5] rounded-[6px] p-5 sm:p-6">
             
-            {/* Heading */}
+            
             <div className="flex items-center gap-2">
               <svg
                 className="w-4 h-4 text-[#2563eb]"
@@ -62,7 +62,7 @@ function TopInstitutionsAndVisa() {
               </h2>
             </div>
 
-            {/* University List */}
+            
             <div className="mt-6 space-y-6">
               {universities.map((uni, index) => (
                 <div
@@ -70,7 +70,7 @@ function TopInstitutionsAndVisa() {
                   className="flex items-start justify-between gap-4 border-b border-[#f1f1f1] pb-5 last:border-none last:pb-0"
                 >
                   
-                  {/* Left */}
+                  
                   <div>
                     <h3 className="text-[#ff6b00] text-[14px] font-medium">
                       {uni.name}
@@ -81,7 +81,7 @@ function TopInstitutionsAndVisa() {
                     </p>
                   </div>
 
-                  {/* Right */}
+                  
                   <div className="text-right">
                     <h4 className="text-[#00a884] text-[13px] font-semibold">
                       {uni.fee}
@@ -96,10 +96,10 @@ function TopInstitutionsAndVisa() {
             </div>
           </div>
 
-          {/* RIGHT CARD */}
+          
           <div className="bg-[#2563eb] rounded-[6px] p-5 sm:p-6 text-white">
             
-            {/* Heading */}
+            
             <div className="flex items-center gap-2">
               <svg
                 className="w-4 h-4"
@@ -125,7 +125,7 @@ function TopInstitutionsAndVisa() {
               </h2>
             </div>
 
-            {/* Visa Steps */}
+            
             <div className="mt-6 space-y-4">
               {visaSteps.map((step, index) => (
                 <div
@@ -143,7 +143,7 @@ function TopInstitutionsAndVisa() {
               ))}
             </div>
 
-            {/* Button */}
+            
             <button className="w-full mt-8 bg-white text-[#2563eb] text-[11px] font-semibold py-3 rounded-[4px] hover:bg-gray-100 transition-all duration-300">
               DOWNLOAD UK GUIDE
             </button>

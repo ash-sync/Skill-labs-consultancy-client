@@ -37,7 +37,7 @@ export default function GlobalPresence() {
     <section className="w-full bg-[#F8F9FA] py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section */}
+        
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#111827]">
             <span className="text-[#EA580C]">Global</span> Presence
@@ -47,7 +47,7 @@ export default function GlobalPresence() {
           </p>
         </div>
 
-        {/* Locations Grid */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
           {locations.map((loc, index) => (
             <div 
@@ -55,7 +55,7 @@ export default function GlobalPresence() {
               className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between h-full max-w-[340px] mx-auto w-full"
             >
               <div>
-                {/* City Image Container with Aspect Ratio */}
+                
                 <div className="w-full aspect-[16/10] rounded-xl overflow-hidden mb-5">
                   <img 
                     src={loc.image} 
@@ -64,18 +64,18 @@ export default function GlobalPresence() {
                   />
                 </div>
 
-                {/* City Title */}
+                
                 <h3 className="text-[#2563EB] font-bold text-[15px] mb-2 tracking-wide">
                   {loc.title}
                 </h3>
 
-                {/* Address Description */}
+                
                 <p className="text-[#4B5563] text-xs leading-relaxed font-normal mb-6 min-h-[36px]">
                   {loc.address}
                 </p>
               </div>
 
-              {/* Map Redirection Link */}
+              
               <a 
                 href={loc.mapLink}
                 className="inline-flex items-center gap-1.5 text-[#EA580C] hover:text-[#C2410C] text-xs font-bold tracking-wide group transition-colors w-max"

@@ -19,22 +19,22 @@ function ProcessSection() {
     Your One-Stop Solution
   </h2>
 
-  <div className="flex flex-wrap justify-center items-start gap-10 lg:gap-0 max-w-7xl mx-auto">
+  <div className="flex flex-nowrap justify-center items-center gap-4 overflow-x-auto max-w-7xl mx-auto" style={{height: '267px'}}>
 
-    {/* Card 1 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-blue-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-blue-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             1
           </span>
 
           <img
             src={process1}
             alt="Assessment Service"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
@@ -50,20 +50,20 @@ function ProcessSection() {
       <div className="hidden lg:block w-20 border-t border-dotted border-gray-400 mb-20"></div>
     </div>
 
-    {/* Card 2 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-green-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-green-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             2
           </span>
 
           <img
             src={process2}
             alt="File Processing"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
@@ -79,20 +79,20 @@ function ProcessSection() {
       <div className="hidden lg:block w-20 border-t border-dotted border-gray-400 mb-20"></div>
     </div>
 
-    {/* Card 3 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-purple-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-purple-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             3
           </span>
 
           <img
             src={process3}
             alt="Visa Processing"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
@@ -108,20 +108,20 @@ function ProcessSection() {
       <div className="hidden lg:block w-20 border-t border-dotted border-gray-400 mb-20"></div>
     </div>
 
-    {/* Card 4 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-orange-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-orange-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             4
           </span>
 
           <img
             src={process4}
             alt="Processing Updates"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
@@ -137,20 +137,20 @@ function ProcessSection() {
       <div className="hidden lg:block w-20 border-t border-dotted border-gray-400 mb-20"></div>
     </div>
 
-    {/* Card 5 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-pink-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-pink-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             5
           </span>
 
           <img
             src={process5}
             alt="SOP Writing"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
@@ -166,20 +166,20 @@ function ProcessSection() {
       <div className="hidden lg:block w-20 border-t border-dotted border-gray-400 mb-20"></div>
     </div>
 
-    {/* Card 6 */}
+    
     <div className="flex items-center">
-      <div className="text-center w-44 relative">
+      <div className="text-center w-28 relative">
         
-        <div className="relative w-28 h-28 mx-auto rounded-full bg-green-50 border-4 border-white shadow-lg flex items-center justify-center">
+        <div className="relative w-20 h-20 mx-auto rounded-full bg-green-50 border-4 border-white shadow-lg flex items-center justify-center">
 
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-semibold">
             6
           </span>
 
           <img
             src={process6}
             alt="Scholarship/Waiver"
-            className="w-14 h-14 object-contain"
+            className="w-10 h-10 object-contain"
           />
         </div>
 
