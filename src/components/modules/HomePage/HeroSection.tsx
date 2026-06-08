@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
   CalendarDays,
@@ -27,6 +28,7 @@ function HeroSection() {
       toast.error("Please fill all fields");
       return;
     }
+    console.log({ name, email, phone, service, time: selectedDate.toISOString() });
 
     try {
       await createBooking({
@@ -165,30 +167,55 @@ function HeroSection() {
                 </div>
               </div>
               
-              <div className="mb-7">
-                <label className="block text-[#374151] font-medium mb-3">
-                  Services
-                </label>
+            <div className="mb-7">
+  <label className="block text-sm font-semibold text-gray-700 mb-2">
+    Service
+  </label>
 
-                <div className="flex items-center border border-gray-200 rounded-2xl px-5 py-4">
-                  <select 
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="w-full outline-none text-gray-700 bg-transparent appearance-none"
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="Student Visa">Student Visa</option>
-                    <option value="Career Consultation">Career Consultation</option>
-                    <option value="University Admission">University Admission</option>
-                  </select>
+  <div className="relative group">
+    <select
+      value={service}
+      onChange={(e) => setService(e.target.value)}
+      className="
+        w-full
+        rounded-2xl
+        border border-gray-200
+        bg-white
+        px-5 py-4
+        pr-12
+        text-gray-700
+        outline-none
+        appearance-none
+        transition-all duration-200
+        shadow-sm
+        hover:border-[#14b8a6]/50
+        focus:border-[#14b8a6]
+        focus:ring-4
+        focus:ring-[#14b8a6]/10
+      "
+      required
+    >
+      <option value="">Select a service</option>
+      <option value="Student Visa">🎓 Student Visa</option>
+      <option value="Career Consultation">💼 Career Consultation</option>
+      <option value="University Admission">🏫 University Admission</option>
+    </select>
 
-                  <ChevronDown
-                    className="text-[#14b8a6]"
-                    size={22}
-                  />
-                </div>
-              </div>
+    <ChevronDown
+      size={20}
+      className="
+        absolute
+        right-4
+        top-1/2
+        -translate-y-1/2
+        text-[#14b8a6]
+        pointer-events-none
+        transition-transform
+        group-hover:scale-110
+      "
+    />
+  </div>
+</div>
 
               
               <div className="mb-10">

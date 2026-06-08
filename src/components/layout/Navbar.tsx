@@ -139,14 +139,7 @@ function Navbar() {
                 Logout
               </button>
             </>
-          ) : (
-            <Link
-              to="/login"
-              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              Sign In
-            </Link>
-          )}
+          ) : null}
           <Link to="/consultants">
             <button className="bg-btn-gradient text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:opacity-90 transition-opacity cursor-pointer">
               Book Now
