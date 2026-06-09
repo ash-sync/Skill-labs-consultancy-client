@@ -139,14 +139,7 @@ function Navbar() {
                 Logout
               </button>
             </>
-          ) : (
-            <Link
-              to="/login"
-              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              Sign In
-            </Link>
-          )}
+          ) : null}
           <Link to="/consultants">
             <Button
               className={cn(
