@@ -14,6 +14,7 @@ import {
 import { Link } from "react-router";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout } from "@/redux/features/auth/authSlice";
+import { cn } from "@/lib/utils";
 
 function Navbar() {
   const dispatch = useAppDispatch();
@@ -95,7 +96,9 @@ function Navbar() {
 
           <div>
             <h3 className="text-xl text-brand">
-              <span className=" font-black ">SKill</span> Labs
+              <Link to="/">
+                <span className=" font-black ">SKill</span> Labs
+              </Link>
             </h3>
           </div>
         </div>
@@ -145,9 +148,13 @@ function Navbar() {
             </Link>
           )}
           <Link to="/consultants">
-            <button className="bg-btn-gradient text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:opacity-90 transition-opacity cursor-pointer">
+            <Button
+              className={cn(
+                "bg-btn-gradient text-white font-semibold px-4 py-5  rounded-full shadow-md hover:opacity-90 transition-opacity cursor-pointer ",
+              )}
+            >
               Book Now
-            </button>
+            </Button>
           </Link>
         </div>
       </div>

@@ -71,7 +71,7 @@ function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 mt-10">
-              <Button className="bg-[#2563ff] hover:bg-[#1d4ed8] transition-all duration-300 text-white px-10 py-4 rounded-2xl text-lg font-semibold shadow-lg">
+              <Button className="bg-[#2563ff] hover:bg-[#1d4ed8] transition-all duration-300 text-white px-10 py-8 rounded-2xl text-lg font-semibold shadow-lg">
                 Get Free Consultation
               </Button>
               <Button className="bg-white p-8 border border-[#f59e0b] hover:bg-orange-50 transition-all duration-300 text-[#1f2937]  rounded-2xl  font-semibold shadow-md">
