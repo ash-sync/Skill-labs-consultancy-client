@@ -24,7 +24,7 @@ export default function DashboardLayout() {
 
   useEffect(() => {
     if (!user || user.role !== "ADMIN") {
-      navigate("/login");
+      navigate("/admin/login");
     }
   }, [user, navigate]);
 

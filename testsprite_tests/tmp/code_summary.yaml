@@ -1,0 +1,92 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React
+  - React Router
+  - Redux Toolkit
+  - Vite
+  - TailwindCSS
+routes:
+  - path: /
+    file: src/pages/Home/Home.tsx
+    auth_required: false
+    description: Public homepage of the consultancy site
+  - path: /about-us
+    file: src/pages/AboutUs.tsx
+    auth_required: false
+    description: About Us page
+  - path: /services
+    file: src/pages/Services/Services.tsx
+    auth_required: false
+    description: Services offered page
+  - path: /destinations
+    file: src/pages/Destination/Destination.tsx
+    auth_required: false
+    description: Study destinations page
+  - path: /consultants
+    file: src/pages/Consultants/Consultants.tsx
+    auth_required: false
+    description: Consultants page
+  - path: /training
+    file: src/pages/Training/Training.tsx
+    auth_required: false
+    description: Training services page
+  - path: /admin/login
+    file: src/pages/Login.tsx
+    auth_required: false
+    description: Administrator login page
+  - path: /admin/dashboard
+    file: src/pages/Admin/Overview.tsx
+    auth_required: true
+    description: Admin dashboard overview
+  - path: /admin/dashboard/services
+    file: src/pages/Admin/ManageServices.tsx
+    auth_required: true
+    description: Manage consultancy services
+  - path: /admin/dashboard/destinations
+    file: src/pages/Admin/ManageDestinations.tsx
+    auth_required: true
+    description: Manage destination options
+  - path: /admin/dashboard/countries
+    file: src/pages/Admin/ManageCountries.tsx
+    auth_required: true
+    description: Manage countries lists
+  - path: /admin/dashboard/bookings
+    file: src/pages/Admin/ManageBookings.tsx
+    auth_required: true
+    description: Manage bookings
+  - path: /admin/dashboard/faqs
+    file: src/pages/Admin/ManageFAQs.tsx
+    auth_required: true
+    description: Manage FAQs
+  - path: /admin/dashboard/testimonials
+    file: src/pages/Admin/ManageTestimonials.tsx
+    auth_required: true
+    description: Manage student testimonials
+  - path: /admin/dashboard/experts
+    file: src/pages/Admin/ManageExperts.tsx
+    auth_required: true
+    description: Manage experts/consultants
+features:
+  - name: Admin Login
+    description: Administrator authentication using email and password credentials
+    files:
+      - src/pages/Login.tsx
+    entry_route: /admin/login
+    user_interactions:
+      - Fill email input field with email address
+      - Fill password input field with password
+      - Click Sign In button to submit
+      - See success toast or error notification
+    auth_required: false
+  - name: Admin Dashboard Overview
+    description: Main dashboard screen showing stats and analytics
+    files:
+      - src/pages/Admin/Overview.tsx
+      - src/components/layout/DashboardLayout.tsx
+    entry_route: /admin/dashboard
+    user_interactions:
+      - View overview statistics and counts
+    auth_required: true
+known_limitations: []

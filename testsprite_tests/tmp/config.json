@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:4173",
+  "loginUser": "admin@gmail.com",
+  "executionArgs": {
+    "projectName": "Skill-labs-consultancy-client",
+    "projectPath": "c:\\Users\\provident technology\\Desktop\\projects\\Skill-labs-consultancy-client",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-rJLVI3QXvuCNVmmEVG_dRy0P9hx_Xqjv1ZNC7SM08nk_l8oonoxFExpheCOMOcYLVLdDXD83N7QCUJOrTpM8h6ni2Ah5sckRh4AzEb2jPHOMZmy-ltNLBG63Mf8aHoQyEC4"
+    }
+  },
+  "serverPort": 61561
+}
