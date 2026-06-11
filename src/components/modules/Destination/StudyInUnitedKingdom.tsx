@@ -1,6 +1,6 @@
-import durationIcon from '@/assets/images/destination/studyInUnitedKingdom/durationIcon.png'
-import graduateIcon from '@/assets/images/destination/studyInUnitedKingdom/rankIcon.png'
-import unitedKingdomImage from '@/assets/images/destination/studyInUnitedKingdom/unitedKingdom.png'
+import durationIcon from '@/assets/images/destination/studyInUnitedKingdom/durationIcon.webp'
+import graduateIcon from '@/assets/images/destination/studyInUnitedKingdom/rankIcon.webp'
+import unitedKingdomImage from '@/assets/images/destination/studyInUnitedKingdom/unitedKingdom.webp'
 
 
 function StudyInUnitedKingdom() {
@@ -43,6 +43,8 @@ function StudyInUnitedKingdom() {
                     src={durationIcon}
                     alt="Duration"
                     className="w-4 h-4 object-contain"
+                    width={16}
+                    height={16}
                   />
                 </div>
 
@@ -63,6 +65,8 @@ function StudyInUnitedKingdom() {
                     src={graduateIcon}
                     alt="Graduate"
                     className="w-4 h-4 object-contain"
+                    width={16}
+                    height={16}
                   />
                 </div>
 
@@ -86,6 +90,8 @@ function StudyInUnitedKingdom() {
                 src={unitedKingdomImage}
                 alt="United Kingdom"
                 className="w-full h-[260px] sm:h-[360px] lg:h-[420px] object-cover rounded-[6px]"
+                width={1200}
+                height={420}
               />
 
               

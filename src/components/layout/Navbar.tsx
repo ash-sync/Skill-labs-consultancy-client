@@ -24,7 +24,6 @@ function Navbar() {
     { href: "/about-us", label: "About Us" },
     { href: "/services", label: "Our Services" },
     { href: "/consultants", label: "Consultants" },
-    { href: "/training", label: "Training" },
   ];
 
   return (
@@ -39,6 +38,7 @@ function Navbar() {
                 className="group size-8 md:hidden"
                 size="icon"
                 variant="ghost"
+                aria-label="Toggle Menu"
               >
                 <svg
                   className="pointer-events-none"
@@ -96,9 +96,9 @@ function Navbar() {
           </Popover>
           
           <div>
-            <h3 className="text-xl text-brand">
+            <div className="text-xl text-brand">
               <span className=" font-black ">SKill</span> Labs
-            </h3>
+            </div>
           </div>
         </div>
         <div className="sticky top-0 z-50  flex items-center justify-between ">

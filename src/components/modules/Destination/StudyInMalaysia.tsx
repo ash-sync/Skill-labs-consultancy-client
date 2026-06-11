@@ -1,6 +1,6 @@
-import malaysiaImage from "@/assets/images/destination/studyInMalaysia/malaysia.png"
-import calendarIcon from "@/assets/images/destination/studyInMalaysia/calenderIcon.png"
-import costIcon from "@/assets/images/destination/studyInMalaysia/costIcon.png"
+import malaysiaImage from "@/assets/images/destination/studyInMalaysia/malaysia.webp"
+import calendarIcon from "@/assets/images/destination/studyInMalaysia/calenderIcon.webp"
+import costIcon from "@/assets/images/destination/studyInMalaysia/costIcon.webp"
 
 function StudyInMalaysia() {
   return (
@@ -17,6 +17,8 @@ function StudyInMalaysia() {
                 src={malaysiaImage}
                 alt="Malaysia"
                 className="w-full h-[240px] sm:h-[300px] lg:h-[320px] object-cover rounded-[3px]"
+                width={1200}
+                height={320}
               />
 
              <div className="flex items-right justify-end">
@@ -60,6 +62,8 @@ function StudyInMalaysia() {
                     src={calendarIcon}
                     alt="Deadline"
                     className="w-3.5 h-3.5 object-contain"
+                    width={14}
+                    height={14}
                   />
 
                   <p className="mt-2 text-[9px] text-[#777] leading-4">
@@ -77,6 +81,8 @@ function StudyInMalaysia() {
                     src={costIcon}
                     alt="Living Cost"
                     className="w-3.5 h-3.5 object-contain"
+                    width={14}
+                    height={14}
                   />
 
                   <p className="mt-2 text-[9px] text-[#777] leading-4">

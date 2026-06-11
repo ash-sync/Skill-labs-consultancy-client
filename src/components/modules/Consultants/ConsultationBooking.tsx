@@ -101,12 +101,13 @@ export default function ConsultationBooking() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
+                  <label htmlFor="booking-name" className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
                     Full Name
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
                     <input
+                      id="booking-name"
                       type="text"
                       placeholder="full name"
                       className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-4 py-3 placeholder-[#9CA3AF] border-0 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all"
@@ -118,12 +119,13 @@ export default function ConsultationBooking() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
+                  <label htmlFor="booking-email" className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
                     Email Address
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
                     <input
+                      id="booking-email"
                       type="email"
                       placeholder="john@example.com"
                       className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-4 py-3 placeholder-[#9CA3AF] border-0 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all"
@@ -137,14 +139,22 @@ export default function ConsultationBooking() {
 
              
               <div>
-                <label className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
+                <label htmlFor="booking-service" className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
                   Service Type
                 </label>
                 <div className="relative">
                   <Layers className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none z-10" />
                   
                   <div 
+                    id="booking-service"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setIsDropdownOpen(!isDropdownOpen);
+                      }
+                    }}
                     className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-10 py-3 border border-transparent hover:border-gray-200 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all cursor-pointer flex items-center justify-between shadow-sm"
                   >
                     <span>{formData.serviceType}</span>
@@ -156,6 +166,8 @@ export default function ConsultationBooking() {
                       {["Academic Admissions", "Visa & Immigration Consulting", "Career Strategy Session"].map((service) => (
                         <div
                           key={service}
+                          role="option"
+                          aria-selected={formData.serviceType === service}
                           onClick={() => {
                             setFormData({...formData, serviceType: service});
                             setIsDropdownOpen(false);
@@ -177,12 +189,13 @@ export default function ConsultationBooking() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
+                  <label htmlFor="booking-date" className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
                     Date
                   </label>
                   <div className="relative">
                     <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none" />
                     <input
+                      id="booking-date"
                       type="date"
                       className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-4 py-3 border-0 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all"
                       value={formData.date}
@@ -193,12 +206,13 @@ export default function ConsultationBooking() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
+                  <label htmlFor="booking-time" className="block text-xs font-bold text-[#4B5563] uppercase tracking-wider mb-2">
                     Time
                   </label>
                   <div className="relative">
                     <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none" />
                     <input
+                      id="booking-time"
                       type="time"
                       className="w-full bg-[#F3F4F6] text-[#111827] text-sm rounded-lg pl-10 pr-4 py-3 border-0 focus:ring-2 focus:ring-[#2563EB] outline-none transition-all"
                       value={formData.time}

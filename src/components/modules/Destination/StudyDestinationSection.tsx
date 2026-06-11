@@ -1,4 +1,5 @@
 import { MapPin, GraduationCap } from "lucide-react"
+import { optimizeImageUrl } from "../../../utils/imageOptimizer"
 
 interface CountryProps {
   country: any;
@@ -67,9 +68,11 @@ function StudyDestinationSection({ country, index }: CountryProps) {
 
             <div className={`relative min-h-[320px] sm:min-h-[450px] lg:min-h-full ${!isEven ? 'lg:order-1' : ''}`}>
               <img
-                src={country.image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop"}
+                src={optimizeImageUrl(country.image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop", 800)}
                 alt={country.name}
                 className="object-cover w-full h-full rounded-2xl"
+                width={800}
+                height={533}
               />
             </div>
           </div>

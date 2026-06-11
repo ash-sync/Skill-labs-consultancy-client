@@ -1,9 +1,9 @@
-import melbourneImage from '../../../assets/images/universities/melbourne.png'
-import sydneyImage from '../../../assets/images/universities/sydney.png'
-import deakin from '../../../assets/images/universities/deakin.png'
-import curtin from '../../../assets/images/universities/curtin.png'
-import monash from '../../../assets/images/universities/monash.png'
-import northSouth from '../../../assets/images/universities/northSouth.png'
+import melbourneImage from '../../../assets/images/universities/melbourne.webp'
+import sydneyImage from '../../../assets/images/universities/sydney.webp'
+import deakin from '../../../assets/images/universities/deakin.webp'
+import curtin from '../../../assets/images/universities/curtin.webp'
+import monash from '../../../assets/images/universities/monash.webp'
+import northSouth from '../../../assets/images/universities/northSouth.webp'
 
 function PartnersSection() {
   return (
@@ -25,6 +25,8 @@ function PartnersSection() {
               src={sydneyImage}
               alt="Sydney University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
 
@@ -33,6 +35,8 @@ function PartnersSection() {
               src={monash}
               alt="Monash University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
 
@@ -41,6 +45,8 @@ function PartnersSection() {
               src={melbourneImage}
               alt="Melbourne University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
 
@@ -49,6 +55,8 @@ function PartnersSection() {
               src={northSouth}
               alt="North South University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
 
@@ -57,6 +65,8 @@ function PartnersSection() {
               src={deakin}
               alt="Deakin University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
 
@@ -65,6 +75,8 @@ function PartnersSection() {
               src={curtin}
               alt="Curtin University"
               className="max-h-12 object-contain"
+              width={144}
+              height={48}
             />
           </div>
         </div>

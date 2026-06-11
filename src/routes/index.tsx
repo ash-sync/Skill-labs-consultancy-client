@@ -1,23 +1,24 @@
+import { lazy } from "react";
 import App from "@/App";
-import AboutUs from "@/pages/AboutUs";
-import Consultants from "@/pages/Consultants/Consultants";
-import Destination from "@/pages/Destination/Destination";
-import Home from "@/pages/Home/Home";
-import Services from "@/pages/Services/Services";
-import Training from "@/pages/Training/Training";
 import { createBrowserRouter } from "react-router";
-
-
-import Login from "@/pages/Login";
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import Overview from "@/pages/Admin/Overview";
-import ManageServices from "@/pages/Admin/ManageServices";
-import ManageDestinations from "@/pages/Admin/ManageDestinations";
-import ManageCountries from "@/pages/Admin/ManageCountries";
-import ManageBookings from "@/pages/Admin/ManageBookings";
-import ManageFAQs from "@/pages/Admin/ManageFAQs";
-import ManageTestimonials from "@/pages/Admin/ManageTestimonials";
-import ManageExperts from "@/pages/Admin/ManageExperts";
+
+const Home = lazy(() => import("@/pages/Home/Home"));
+const AboutUs = lazy(() => import("@/pages/AboutUs"));
+const Consultants = lazy(() => import("@/pages/Consultants/Consultants"));
+const Destination = lazy(() => import("@/pages/Destination/Destination"));
+const Services = lazy(() => import("@/pages/Services/Services"));
+const Training = lazy(() => import("@/pages/Training/Training"));
+const Login = lazy(() => import("@/pages/Login"));
+
+const Overview = lazy(() => import("@/pages/Admin/Overview"));
+const ManageServices = lazy(() => import("@/pages/Admin/ManageServices"));
+const ManageDestinations = lazy(() => import("@/pages/Admin/ManageDestinations"));
+const ManageCountries = lazy(() => import("@/pages/Admin/ManageCountries"));
+const ManageBookings = lazy(() => import("@/pages/Admin/ManageBookings"));
+const ManageFAQs = lazy(() => import("@/pages/Admin/ManageFAQs"));
+const ManageTestimonials = lazy(() => import("@/pages/Admin/ManageTestimonials"));
+const ManageExperts = lazy(() => import("@/pages/Admin/ManageExperts"));
 
 export const router = createBrowserRouter([
   {

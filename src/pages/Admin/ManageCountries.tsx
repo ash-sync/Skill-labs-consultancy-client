@@ -167,6 +167,7 @@ export default function ManageCountries() {
                       onClick={() => handleOpenEdit(country)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg cursor-pointer transition-colors"
                       title="Edit"
+                      aria-label={`Edit ${country.name}`}
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
@@ -174,6 +175,7 @@ export default function ManageCountries() {
                       onClick={() => handleDelete(country._id)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer transition-colors"
                       title="Delete"
+                      aria-label={`Delete ${country.name}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -223,6 +225,7 @@ export default function ManageCountries() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -238,10 +241,11 @@ export default function ManageCountries() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="country-name" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Country Name
                   </label>
                   <input
+                    id="country-name"
                     type="text"
                     required
                     value={name}
@@ -253,10 +257,11 @@ export default function ManageCountries() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="country-file" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Flag / Cover Banner
                   </label>
                   <input
+                    id="country-file"
                     type="file"
                     accept="image/*"
                     onChange={(e) => {
@@ -270,10 +275,11 @@ export default function ManageCountries() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="country-fees" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Estimated Tuition Fees
                   </label>
                   <input
+                    id="country-fees"
                     type="text"
                     value={fees}
                     onChange={(e) => setFees(e.target.value)}
@@ -284,10 +290,11 @@ export default function ManageCountries() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="country-deadline" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Application Deadline
                   </label>
                   <input
+                    id="country-deadline"
                     type="text"
                     value={deadline}
                     onChange={(e) => setDeadline(e.target.value)}
@@ -299,12 +306,13 @@ export default function ManageCountries() {
 
               
               <div className="border-t border-slate-100 pt-4 space-y-3">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+                <label htmlFor="new-institute-input" className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                   Affiliated Institutes List
                 </label>
                 
                 <div className="flex gap-2">
                   <input
+                    id="new-institute-input"
                     type="text"
                     value={newInstituteName}
                     onChange={(e) => setNewInstituteName(e.target.value)}
@@ -335,6 +343,7 @@ export default function ManageCountries() {
                         <button
                           type="button"
                           onClick={() => handleRemoveInstitute(idx)}
+                          aria-label={`Remove ${inst}`}
                           className="hover:text-rose-500 rounded p-0.5"
                         >
                           <X className="w-3 h-3" />

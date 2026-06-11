@@ -92,11 +92,12 @@ function ConsultationSection() {
                   
                   {/* Name */}
                   <div>
-                    <label className="text-[11px] uppercase text-[#777] font-medium">
+                    <label htmlFor="consult-name" className="text-[11px] uppercase text-slate-600 font-medium">
                       Full Name
                     </label>
 
                     <input
+                      id="consult-name"
                       type="text"
                       name="name"
                       value={formData.name}
@@ -108,11 +109,12 @@ function ConsultationSection() {
 
                   {/* Email */}
                   <div>
-                    <label className="text-[11px] uppercase text-[#777] font-medium">
+                    <label htmlFor="consult-email" className="text-[11px] uppercase text-slate-600 font-medium">
                       Email Address
                     </label>
 
                     <input
+                      id="consult-email"
                       type="email"
                       name="email"
                       value={formData.email}
@@ -125,11 +127,12 @@ function ConsultationSection() {
 
                 {/* Phone */}
                 <div className="mt-5">
-                  <label className="text-[11px] uppercase text-[#777] font-medium">
+                  <label htmlFor="consult-phone" className="text-[11px] uppercase text-slate-600 font-medium">
                     Phone
                   </label>
 
                   <input
+                    id="consult-phone"
                     type="text"
                     name="phone"
                     value={formData.phone}
@@ -141,11 +144,12 @@ function ConsultationSection() {
 
                 {/* Country */}
                 <div className="mt-5">
-                  <label className="text-[11px] uppercase text-[#777] font-medium">
+                  <label htmlFor="consult-country" className="text-[11px] uppercase text-slate-600 font-medium">
                     Interested Country
                   </label>
 
                   <select
+                    id="consult-country"
                     name="interestedCountry"
                     value={formData.interestedCountry}
                     onChange={handleChange}
@@ -160,11 +164,12 @@ function ConsultationSection() {
 
                 {/* Message */}
                 <div className="mt-5">
-                  <label className="text-[11px] uppercase text-[#777] font-medium">
+                  <label htmlFor="consult-message" className="text-[11px] uppercase text-slate-600 font-medium">
                     Message (Optional)
                   </label>
 
                   <textarea
+                    id="consult-message"
                     rows={4}
                     name="message"
                     value={formData.message}

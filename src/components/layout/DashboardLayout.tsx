@@ -1,7 +1,7 @@
 import { Outlet, Link, useLocation, useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import {
   LayoutDashboard,
   Compass,
@@ -13,6 +13,7 @@ import {
   LogOut,
   Home,
   Users,
+  Loader2,
 } from "lucide-react";
 
 export default function DashboardLayout() {
@@ -156,7 +157,15 @@ export default function DashboardLayout() {
         
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-8">
           <div className="max-w-7xl mx-auto">
-            <Outlet />
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-center py-32 bg-transparent min-h-[50vh]">
+                  <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
+                </div>
+              }
+            >
+              <Outlet />
+            </Suspense>
           </div>
         </main>
       </div>

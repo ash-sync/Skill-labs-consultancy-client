@@ -143,6 +143,7 @@ export default function ManageFAQs() {
                   onClick={() => handleOpenEdit(faq)}
                   className="p-1.5 bg-slate-50 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg cursor-pointer transition-colors"
                   title="Edit"
+                  aria-label={`Edit FAQ: ${faq.question}`}
                 >
                   <Pencil className="w-3.5 h-3.5" />
                 </button>
@@ -150,6 +151,7 @@ export default function ManageFAQs() {
                   onClick={() => handleDelete(faq._id)}
                   className="p-1.5 bg-slate-50 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer transition-colors"
                   title="Delete"
+                  aria-label={`Delete FAQ: ${faq.question}`}
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
@@ -170,6 +172,7 @@ export default function ManageFAQs() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -185,10 +188,11 @@ export default function ManageFAQs() {
               <div className="space-y-4">
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="faq-question" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Question
                   </label>
                   <input
+                    id="faq-question"
                     type="text"
                     required
                     value={question}
@@ -200,10 +204,11 @@ export default function ManageFAQs() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="faq-answer" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Answer
                   </label>
                   <textarea
+                    id="faq-answer"
                     required
                     rows={4}
                     value={answer}
@@ -215,10 +220,11 @@ export default function ManageFAQs() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="faq-order" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Display Order (Numeric)
                   </label>
                   <input
+                    id="faq-order"
                     type="number"
                     value={order}
                     onChange={(e) => setOrder(Number(e.target.value))}

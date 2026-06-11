@@ -1,8 +1,9 @@
 import React from 'react'
 import { useGetDestinationsQuery } from '../../../redux/api/dashboard.api'
+import { optimizeImageUrl } from '../../../utils/imageOptimizer'
 
 function Destinations() {
-  const { data: destinations = [] } = useGetDestinationsQuery({});
+  const { data: destinations = [], isLoading } = useGetDestinationsQuery({});
 
   return (
     <div className="bg-gray-100 py-12 px-4">
@@ -17,16 +18,36 @@ function Destinations() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
 
-        {destinations.length > 0 ? (
+        {isLoading ? (
+          [...Array(4)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl overflow-hidden shadow-md flex flex-col md:flex-row animate-pulse min-h-[250px]"
+            >
+              <div className="md:w-1/2 min-h-[200px] bg-gray-200" />
+              <div className="md:w-1/2 p-5 flex flex-col justify-between space-y-4">
+                <div className="space-y-3">
+                  <div className="h-4 bg-gray-200 rounded w-full" />
+                  <div className="h-4 bg-gray-200 rounded w-5/6" />
+                  <div className="h-3 bg-gray-200 rounded w-1/2" />
+                  <div className="h-3 bg-gray-200 rounded w-2/3" />
+                </div>
+                <div className="h-10 bg-gray-200 rounded w-full mt-4" />
+              </div>
+            </div>
+          ))
+        ) : destinations.length > 0 ? (
           destinations.map((dest: any) => (
             <div key={dest._id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col md:flex-row">
 
               <div className="md:w-1/2 relative">
                 {dest.imageUrl ? (
                   <img
-                    src={dest.imageUrl}
+                    src={optimizeImageUrl(dest.imageUrl, 800)}
                     alt={dest.country}
                     className="w-full h-full min-h-[200px] object-cover"
+                    width={800}
+                    height={600}
                   />
                 ) : (
                   <div className="w-full h-full min-h-[200px] bg-gray-200 flex items-center justify-center text-gray-500">

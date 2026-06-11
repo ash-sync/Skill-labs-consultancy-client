@@ -172,6 +172,7 @@ export default function ManageDestinations() {
                       onClick={() => handleOpenEdit(dest)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg cursor-pointer transition-colors"
                       title="Edit"
+                      aria-label={`Edit Destination ${dest.country}`}
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
@@ -179,6 +180,7 @@ export default function ManageDestinations() {
                       onClick={() => handleDelete(dest._id)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer transition-colors"
                       title="Delete"
+                      aria-label={`Delete Destination ${dest.country}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -224,6 +226,7 @@ export default function ManageDestinations() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -239,10 +242,11 @@ export default function ManageDestinations() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="dest-country" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Country Name
                   </label>
                   <input
+                    id="dest-country"
                     type="text"
                     required
                     value={country}
@@ -254,10 +258,11 @@ export default function ManageDestinations() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="dest-time" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Processing Time
                   </label>
                   <input
+                    id="dest-time"
                     type="text"
                     required
                     value={processingTime}
@@ -269,10 +274,11 @@ export default function ManageDestinations() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="dest-cost" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Living Cost (Estimated)
                   </label>
                   <input
+                    id="dest-cost"
                     type="text"
                     required
                     value={livingCost}
@@ -284,10 +290,11 @@ export default function ManageDestinations() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="dest-image" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Destination Image
                   </label>
                   <input
+                    id="dest-image"
                     type="file"
                     accept="image/*"
                     onChange={(e) => {
@@ -302,10 +309,11 @@ export default function ManageDestinations() {
 
               
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <label htmlFor="dest-desc" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Description
                 </label>
                 <textarea
+                  id="dest-desc"
                   required
                   rows={3}
                   value={description}
@@ -318,10 +326,11 @@ export default function ManageDestinations() {
               
               <div className="border-t border-slate-100 pt-4 space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="dest-institutes" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Top Institutes & Fees
                   </label>
                   <button
+                    id="dest-institutes"
                     type="button"
                     onClick={addInstituteRow}
                     className="text-xs font-bold text-blue-600 hover:text-blue-500 flex items-center gap-1 cursor-pointer"
@@ -340,25 +349,30 @@ export default function ManageDestinations() {
                     {institutes.map((inst, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <input
+                          id={`inst-name-${idx}`}
                           type="text"
                           required
                           value={inst.name}
                           onChange={(e) => updateInstituteField(idx, "name", e.target.value)}
                           placeholder="Institute Name (e.g. Oxford University)"
+                          aria-label={`Institute Name ${idx + 1}`}
                           className="flex-1 bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-slate-800 text-xs font-semibold outline-none focus:border-blue-500 focus:bg-white focus:ring-1 focus:ring-blue-500/20 transition-all"
                         />
                         <input
+                          id={`inst-fees-${idx}`}
                           type="text"
                           required
                           value={inst.estimatedFees}
                           onChange={(e) => updateInstituteField(idx, "estimatedFees", e.target.value)}
                           placeholder="Estimated Fees (e.g. £15,000/Yr)"
+                          aria-label={`Estimated Fees ${idx + 1}`}
                           className="w-44 bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 text-slate-800 text-xs font-semibold outline-none focus:border-blue-500 focus:bg-white focus:ring-1 focus:ring-blue-500/20 transition-all"
                         />
                         <button
                           type="button"
                           onClick={() => removeInstituteRow(idx)}
                           className="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg cursor-pointer transition-all"
+                          aria-label={`Remove Institute ${idx + 1}`}
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

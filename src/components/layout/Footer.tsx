@@ -27,45 +27,57 @@ function Footer() {
             <div className="flex items-center gap-3 mt-6">
               <a
                 href="#"
+                aria-label="Facebook"
                 className="w-9 h-9 flex items-center justify-center rounded-full hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={facebook}
                   alt="Facebook"
                   className="w-full h-full object-contain"
+                  width={36}
+                  height={36}
                 />
               </a>
 
               <a
                 href="#"
+                aria-label="WhatsApp"
                 className="w-9 h-9 flex items-center justify-center rounded-full hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={whatsapp}
                   alt="WhatsApp"
                   className="w-full h-full object-contain"
+                  width={36}
+                  height={36}
                 />
               </a>
 
               <a
                 href="#"
+                aria-label="Instagram"
                 className="w-9 h-9 flex items-center justify-center rounded-full hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={instragram}
                   alt="Instagram"
                   className="w-full h-full object-contain"
+                  width={36}
+                  height={36}
                 />
               </a>
 
               <a
                 href="#"
+                aria-label="LinkedIn"
                 className="w-9 h-9 flex items-center justify-center rounded-full hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={linkedin}
                   alt="LinkedIn"
                   className="w-full h-full object-contain"
+                  width={36}
+                  height={36}
                 />
               </a>
             </div>
@@ -165,6 +177,8 @@ function Footer() {
                   src={phoneIcon}
                   alt="Phone"
                   className="w-5 h-5 mt-[2px]"
+                  width={20}
+                  height={20}
                 />
 
                 <p>+880 1234 567890</p>
@@ -175,6 +189,8 @@ function Footer() {
                   src={emailIcon}
                   alt="Email"
                   className="w-5 h-5 mt-[2px]"
+                  width={20}
+                  height={20}
                 />
 
                 <p className="break-all sm:break-normal">
@@ -187,6 +203,8 @@ function Footer() {
                   src={locationIcon}
                   alt="Location"
                   className="w-5 h-5 mt-[2px]"
+                  width={20}
+                  height={20}
                 />
 
                 <p className="leading-6 max-w-[250px]">

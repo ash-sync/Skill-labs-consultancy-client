@@ -1,11 +1,11 @@
 import React from 'react'
 
-import process1 from '../../../assets/images/process/process1.png'
-import process2 from '../../../assets/images/process/process2.png'
-import process3 from '../../../assets/images/process/process3.png'
-import process4 from '../../../assets/images/process/process4.png'
-import process5 from '../../../assets/images/process/process5.png'
-import process6 from '../../../assets/images/process/process6.png'
+import process1 from '../../../assets/images/process/process1.webp'
+import process2 from '../../../assets/images/process/process2.webp'
+import process3 from '../../../assets/images/process/process3.webp'
+import process4 from '../../../assets/images/process/process4.webp'
+import process5 from '../../../assets/images/process/process5.webp'
+import process6 from '../../../assets/images/process/process6.webp'
 
 function ProcessSection() {
   return (
@@ -35,6 +35,8 @@ function ProcessSection() {
             src={process1}
             alt="Assessment Service"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 
@@ -64,6 +66,8 @@ function ProcessSection() {
             src={process2}
             alt="File Processing"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 
@@ -93,6 +97,8 @@ function ProcessSection() {
             src={process3}
             alt="Visa Processing"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 
@@ -122,6 +128,8 @@ function ProcessSection() {
             src={process4}
             alt="Processing Updates"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 
@@ -151,6 +159,8 @@ function ProcessSection() {
             src={process5}
             alt="SOP Writing"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 
@@ -180,6 +190,8 @@ function ProcessSection() {
             src={process6}
             alt="Scholarship/Waiver"
             className="w-10 h-10 object-contain"
+            width={40}
+            height={40}
           />
         </div>
 

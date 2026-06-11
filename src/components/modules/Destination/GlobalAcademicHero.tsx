@@ -1,4 +1,4 @@
-import destinationBanner from "../../../assets/images/destination/destinationBanner.png";
+import destinationBanner from "../../../assets/images/destination/destinationBanner.webp";
 
 function GlobalAcademicHero() {
   return (
@@ -9,7 +9,9 @@ function GlobalAcademicHero() {
         <img
           src={destinationBanner}
           alt="Global Academic Destinations"
-          className="object-cover"
+          className="object-cover w-full h-full"
+          width={1200}
+          height={700}
         />
 
        

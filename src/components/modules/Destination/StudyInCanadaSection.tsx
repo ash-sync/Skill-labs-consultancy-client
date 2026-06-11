@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { MapPin, GraduationCap } from "lucide-react"
-import canadaDestinationImage from "@/assets/images/destination/destinationBanner.png"
+import canadaDestinationImage from "@/assets/images/destination/destinationBanner.webp"
 
 function StudyInCanadaSection() {
   return (
@@ -24,6 +24,8 @@ function StudyInCanadaSection() {
                   src={canadaDestinationImage}
                   alt="Canada"
                   className="w-full h-[260px] sm:h-[320px] lg:h-[340px] object-cover rounded-sm"
+                  width={1200}
+                  height={340}
                 />
 
                

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import faqImage from '../../../assets/images/Faq.png'
+import faqImage from '../../../assets/images/Faq.webp'
 import { useGetFaqsQuery } from '../../../redux/api/dashboard.api'
 
 function FaqSection() {
@@ -21,39 +21,51 @@ FAQs
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-3">
-            {faqs.map((f: any, i: number) => (
-              <div
-                key={i}
-                className="bg-white border border-[#e8e8f0] rounded-xl overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-4 sm:px-5 py-4 text-left"
-                >
-                  <span className="text-sm sm:text-[15px] font-semibold text-dark font-poppins">
-                    {f.question}
-                  </span>
-
-                  <span className="text-xl text-gray-400 flex-shrink-0">
-                    {openFaq === i ? '−' : '+'}
-                  </span>
-                </button>
-
+            {isLoading ? (
+              [...Array(5)].map((_, i) => (
                 <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    openFaq === i
-                      ? 'grid-rows-[1fr] opacity-100'
-                      : 'grid-rows-[0fr] opacity-0'
-                  }`}
+                  key={i}
+                  className="bg-white border border-[#e8e8f0] rounded-xl p-4 animate-pulse flex justify-between items-center h-[54px]"
                 >
-                  <div className="overflow-hidden">
-                    <p className="px-4 sm:px-5 pb-4 text-xs sm:text-sm leading-relaxed text-gray-500">
-                      {f.answer}
-                    </p>
+                  <div className="h-4 bg-gray-200 rounded w-2/3" />
+                  <div className="h-4 bg-gray-200 rounded w-4" />
+                </div>
+              ))
+            ) : (
+              faqs.map((f: any, i: number) => (
+                <div
+                  key={i}
+                  className="bg-white border border-[#e8e8f0] rounded-xl overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 px-4 sm:px-5 py-4 text-left"
+                  >
+                    <span className="text-sm sm:text-[15px] font-semibold text-dark font-poppins">
+                      {f.question}
+                    </span>
+
+                    <span className="text-xl text-gray-400 flex-shrink-0">
+                      {openFaq === i ? '−' : '+'}
+                    </span>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      openFaq === i
+                        ? 'grid-rows-[1fr] opacity-100'
+                        : 'grid-rows-[0fr] opacity-0'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="px-4 sm:px-5 pb-4 text-xs sm:text-sm leading-relaxed text-gray-500">
+                        {f.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -62,6 +74,8 @@ FAQs
                 src={faqImage}
                 alt="FAQ"
                 className="w-full h-auto object-contain"
+                width={300}
+                height={300}
               />
             </div>
 

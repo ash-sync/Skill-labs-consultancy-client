@@ -3,7 +3,7 @@ import ratingStar from '../../../assets/images/ratingStar.png'
 import { useGetTestimonialsQuery } from '../../../redux/api/dashboard.api'
 
 function ReviewsSection() {
-  const { data: allTestimonials = [] } = useGetTestimonialsQuery({});
+  const { data: allTestimonials = [], isLoading } = useGetTestimonialsQuery({});
   
 
   const testimonials = allTestimonials.filter((t: any) => t.status === 'approved');
@@ -18,7 +18,27 @@ function ReviewsSection() {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {testimonials.length > 0 ? (
+        {isLoading ? (
+          [...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-lg shadow p-5 animate-pulse min-h-[180px] flex flex-col justify-between"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-4 bg-gray-200 rounded w-1/2" />
+                  <div className="h-3 bg-gray-200 rounded w-1/3" />
+                </div>
+              </div>
+              <div className="space-y-2 mt-4 flex-1">
+                <div className="h-3 bg-gray-200 rounded w-full" />
+                <div className="h-3 bg-gray-200 rounded w-5/6" />
+                <div className="h-3 bg-gray-200 rounded w-4/5" />
+              </div>
+            </div>
+          ))
+        ) : testimonials.length > 0 ? (
           testimonials.map((test: any) => (
             <div key={test._id} className="bg-white rounded-lg shadow p-5">
               <div className="flex items-center gap-3 mb-3">

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skill-labs-consultancy-client.vercel.app/sitemap.xml

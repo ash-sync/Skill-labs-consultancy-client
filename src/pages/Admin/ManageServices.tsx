@@ -135,6 +135,7 @@ export default function ManageServices() {
                       onClick={() => handleOpenEdit(service)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg cursor-pointer transition-colors"
                       title="Edit"
+                      aria-label={`Edit ${service.title}`}
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
@@ -142,6 +143,7 @@ export default function ManageServices() {
                       onClick={() => handleDelete(service._id)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer transition-colors"
                       title="Delete"
+                      aria-label={`Delete ${service.title}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -178,6 +180,7 @@ export default function ManageServices() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -193,10 +196,11 @@ export default function ManageServices() {
               <div className="space-y-4">
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="service-title" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Service Title
                   </label>
                   <input
+                    id="service-title"
                     type="text"
                     required
                     value={title}
@@ -208,10 +212,11 @@ export default function ManageServices() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="service-category" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Category
                   </label>
                   <input
+                    id="service-category"
                     type="text"
                     required
                     value={category}
@@ -223,10 +228,11 @@ export default function ManageServices() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="service-desc" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Description
                   </label>
                   <textarea
+                    id="service-desc"
                     required
                     rows={4}
                     value={description}
@@ -238,11 +244,11 @@ export default function ManageServices() {
 
                 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="service-icon" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Service Icon/Image
                   </label>
                   <div className="flex items-center justify-center w-full">
-                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50/50 hover:border-blue-500/50 transition-colors">
+                    <label htmlFor="service-icon" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50/50 hover:border-blue-500/50 transition-colors">
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
                         <Upload className="w-6 h-6 text-slate-400 mb-2" />
                         <p className="text-xs font-bold text-slate-500">
@@ -253,6 +259,7 @@ export default function ManageServices() {
                         </p>
                       </div>
                       <input
+                        id="service-icon"
                         type="file"
                         className="hidden"
                         accept="image/*"

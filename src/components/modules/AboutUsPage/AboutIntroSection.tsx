@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import introImage from "@/assets/images/aboutUs/intro.png"
+import introImage from "@/assets/images/aboutUs/intro.webp"
 import introIcon1 from "@/assets/icons/aboutUs/introIcon1.png"
 import introIcon2 from "@/assets/icons/aboutUs/introicon2.png"
 
@@ -36,6 +36,8 @@ function AboutIntroSection() {
                       src={introIcon1}
                       alt="Success Icon"
                       className="h-5 w-5"
+                      width={20}
+                      height={20}
                     />
                   </div>
 
@@ -58,6 +60,8 @@ function AboutIntroSection() {
                       src={introIcon2}
                       alt="Students Icon"
                       className="h-5 w-5"
+                      width={20}
+                      height={20}
                     />
                   </div>
 
@@ -82,6 +86,8 @@ function AboutIntroSection() {
                 src={introImage}
                 alt="Students discussion"
                 className="h-[520px] w-full max-w-[620px] object-cover"
+                width={620}
+                height={520}
               />
             </div>
 

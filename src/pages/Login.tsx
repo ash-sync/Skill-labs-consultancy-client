@@ -101,12 +101,13 @@ export default function Login() {
         <form onSubmit={handleSubmit} className="space-y-6">
           
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
+            <label htmlFor="login-email" className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
               Email Address
             </label>
             <div className="relative group">
               <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
               <input
+                id="login-email"
                 type="email"
                 required
                 value={email}
@@ -120,13 +121,14 @@ export default function Login() {
           
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
+              <label htmlFor="login-password" className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
                 Password
               </label>
             </div>
             <div className="relative group">
               <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
               <input
+                id="login-password"
                 type={showPassword ? "text" : "password"}
                 required
                 value={password}
@@ -137,6 +139,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white transition-colors"
               >
                 {showPassword ? (

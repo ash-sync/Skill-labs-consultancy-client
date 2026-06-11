@@ -155,6 +155,7 @@ export default function ManageExperts() {
                       onClick={() => handlEditItem(expert)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg cursor-pointer transition-colors"
                       title="Edit"
+                      aria-label={`Edit ${expert.name}`}
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
@@ -162,6 +163,7 @@ export default function ManageExperts() {
                       onClick={() => handleDelete(expert._id)}
                       className="p-1.5 bg-slate-50 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer transition-colors"
                       title="Delete"
+                      aria-label={`Delete ${expert.name}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -203,6 +205,7 @@ export default function ManageExperts() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -217,10 +220,11 @@ export default function ManageExperts() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="expert-name" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Full Name
                   </label>
                   <input
+                    id="expert-name"
                     type="text"
                     required
                     value={name}
@@ -231,10 +235,11 @@ export default function ManageExperts() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="expert-role" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Role / Title
                   </label>
                   <input
+                    id="expert-role"
                     type="text"
                     required
                     value={role}
@@ -247,10 +252,11 @@ export default function ManageExperts() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="expert-category" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Category
                   </label>
                   <select
+                    id="expert-category"
                     required
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
@@ -262,10 +268,11 @@ export default function ManageExperts() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="expert-image" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Profile Image
                   </label>
                   <input
+                    id="expert-image"
                     type="file"
                     accept="image/*"
                     onChange={(e) => {
@@ -280,10 +287,11 @@ export default function ManageExperts() {
 
               {category === "Our Global Consultants" && (
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <label htmlFor="expert-tags" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Tags (Comma Separated)
                   </label>
                   <input
+                    id="expert-tags"
                     type="text"
                     value={tags}
                     onChange={(e) => setTags(e.target.value)}
@@ -294,10 +302,11 @@ export default function ManageExperts() {
               )}
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <label htmlFor="expert-desc" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Description
                 </label>
                 <textarea
+                  id="expert-desc"
                   required
                   rows={4}
                   value={description}

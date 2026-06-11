@@ -1,8 +1,9 @@
-import Luminedge from "@/assets/images/brand/Luminage 1.png";
-import BritishCouncil from "@/assets/images/brand/britishCouncil.png";
-import EDVoy from "@/assets/images/brand/edvoy 1.png";
-import ICDP from "@/assets/images/brand/IDP 1.png";
-import IELTS from "@/assets/images/brand/IELTS 1.png";
+import Luminedge from "@/assets/images/brand/Luminage 1.webp";
+import BritishCouncil from "@/assets/images/brand/britishCouncil.webp";
+import EDVoy from "@/assets/images/brand/edvoy 1.webp";
+import ICDP from "@/assets/images/brand/IDP 1.webp";
+import IELTS from "@/assets/images/brand/IELTS 1.webp";
+
 export default function PartnersSection() {
 
   const partners = [
@@ -19,10 +20,12 @@ export default function PartnersSection() {
         <div className="flex flex-wrap items-center justify-center gap-10">
           {partners.map((partner, index) => (
             <img
-            src={partner}
+              src={partner}
               key={index}
-              className="text-[#777] font-semibold text-sm tracking-wide"
+              className="h-14 md:h-16 object-contain"
               alt="partner"
+              width={150}
+              height={64}
             />
           ))}
         </div>

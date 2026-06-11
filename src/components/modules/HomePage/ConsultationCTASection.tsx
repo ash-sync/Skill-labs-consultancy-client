@@ -1,5 +1,4 @@
-import React from 'react'
-import consultationCTAImage from '../../../assets/images/consultationBg.jpg'
+import consultationCTAImage from '../../../assets/images/consultationBg.webp'
 
 function ConsultationCTASection() {
   return (
@@ -13,6 +12,8 @@ function ConsultationCTASection() {
         src={consultationCTAImage}
         alt=""
         className="w-full h-full object-cover"
+        width={1600}
+        height={350}
       />
     </div>
 
