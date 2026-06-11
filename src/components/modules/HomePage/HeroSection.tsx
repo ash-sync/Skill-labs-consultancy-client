@@ -59,6 +59,10 @@ function HeroSection() {
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
         <img
           src={optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1600)}
+          srcSet={`${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 600)} 600w,
+                   ${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1200)} 1200w,
+                   ${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1600)} 1600w`}
+          sizes="100vw"
           alt="Global Education Background"
           className="w-full h-full object-cover object-center opacity-[0.38] transition-opacity duration-1000"
           fetchPriority="high"
