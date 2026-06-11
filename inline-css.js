@@ -30,9 +30,32 @@ if (match) {
     // Fix relative font URLs (e.g. url(./geist...) -> url(/assets/geist...))
     cssContent = cssContent.replace(/url\(\s*['"]?\.\/([^'"]+)\s*['"]?\)/g, 'url(/assets/$1)');
 
+    // Set font-display to optional for Geist fonts to completely eliminate font-swap layout shifts
+    cssContent = cssContent.replace(/font-display\s*:\s*swap/gi, 'font-display: optional');
+
     // Replace the link tag with inlined style
     const styleTag = `<style>${cssContent}</style>`;
     htmlContent = htmlContent.replace(match[0], styleTag);
+
+    // Resolve hashed font file for preload
+    try {
+      const assetsDir = path.join(distDir, 'assets');
+      if (fs.existsSync(assetsDir)) {
+        const files = fs.readdirSync(assetsDir);
+        const fontFile = files.find(file => /^geist-latin-wght-normal-.*\.woff2$/.test(file));
+        if (fontFile) {
+          console.log(`Dynamic preload font resolved: ${fontFile}`);
+          htmlContent = htmlContent.replace(
+            /href="\/assets\/geist-latin-wght-normal\.woff2"/g,
+            `href="/assets/${fontFile}"`
+          );
+        } else {
+          console.warn('Warning: Could not find geist-latin-wght-normal font file in dist/assets.');
+        }
+      }
+    } catch (e) {
+      console.warn(`Warning dynamic font preload mapping failed: ${e.message}`);
+    }
 
     fs.writeFileSync(htmlPath, htmlContent, 'utf8');
     console.log('Successfully inlined CSS into dist/index.html!');

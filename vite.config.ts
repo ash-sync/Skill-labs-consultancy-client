@@ -19,15 +19,31 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            if (id.includes("react-router") || id.includes("react-dom") || id.includes("react")) {
-              return "vendor-core";
+            // Split React core (smallest critical chunk needed for hydration)
+            if (id.includes("/react/") && !id.includes("react-dom") && !id.includes("react-router") && !id.includes("react-redux") && !id.includes("react-datepicker") && !id.includes("react-redux")) {
+              return "vendor-react";
             }
+            // React DOM is larger — keep separate so it can load in parallel
+            if (id.includes("react-dom")) {
+              return "vendor-react-dom";
+            }
+            // Router — only needed after initial paint
+            if (id.includes("react-router")) {
+              return "vendor-router";
+            }
+            // Redux store
             if (id.includes("@reduxjs/toolkit") || id.includes("react-redux")) {
               return "vendor-redux";
             }
+            // Date picker — lazy loaded, keep isolated
+            if (id.includes("react-datepicker")) {
+              return "vendor-datepicker";
+            }
+            // Icons — only used per-page
             if (id.includes("lucide-react")) {
               return "vendor-lucide";
             }
+            // Everything else
             return "vendor-libs";
           }
         }
