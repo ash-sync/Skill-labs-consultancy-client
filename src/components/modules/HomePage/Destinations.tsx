@@ -43,11 +43,11 @@ function Destinations() {
               <div className="md:w-1/2 relative">
                 {dest.imageUrl ? (
                   <img
-                    src={optimizeImageUrl(dest.imageUrl, 800)}
+                    src={optimizeImageUrl(dest.imageUrl, 600)}
                     alt={dest.country}
                     className="w-full h-full min-h-[200px] object-cover"
-                    width={800}
-                    height={600}
+                    width={600}
+                    height={450}
                   />
                 ) : (
                   <div className="w-full h-full min-h-[200px] bg-gray-200 flex items-center justify-center text-gray-500">

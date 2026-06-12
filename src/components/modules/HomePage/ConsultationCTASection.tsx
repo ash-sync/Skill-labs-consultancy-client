@@ -12,8 +12,8 @@ function ConsultationCTASection() {
         src={consultationCTAImage}
         alt=""
         className="w-full h-full object-cover"
-        width={1600}
-        height={350}
+        width={800}
+        height={250}
       />
     </div>
 

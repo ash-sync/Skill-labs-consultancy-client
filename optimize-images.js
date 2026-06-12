@@ -34,9 +34,9 @@ async function processDirectory(dir) {
 
           // Apply specific resizing based on image type and usage
           if (entry.name === 'consultationBg.jpg') {
-            pipeline = pipeline.resize({ width: 1200, withoutEnlargement: true });
-          } else if (entry.name === 'destinationBanner.png') {
             pipeline = pipeline.resize({ width: 800, withoutEnlargement: true });
+          } else if (entry.name === 'destinationBanner.png') {
+            pipeline = pipeline.resize({ width: 600, withoutEnlargement: true });
           } else if (dir.includes('universities')) {
             pipeline = pipeline.resize({ width: 180, withoutEnlargement: true });
           } else if (dir.includes('process')) {

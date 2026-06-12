@@ -6,10 +6,10 @@
 export function optimizeImageUrl(url: string, width?: number): string {
   if (!url || typeof url !== 'string') return url;
 
-  // 1. Optimize Flaticon CDN icons (usually requested at 512x512, we display them at 32x32 to 56x56)
+  // 1. Optimize Flaticon CDN icons (usually requested at 512x512, we display them at 32x32)
   if (url.includes('cdn-icons-png.flaticon.com')) {
-    // Replace /512/ or /128/ with /64/ to request a much smaller PNG size
-    return url.replace('/512/', '/64/').replace('/128/', '/64/');
+    // Replace /512/ or /128/ or /64/ with /32/ to request a much smaller PNG size
+    return url.replace('/512/', '/32/').replace('/128/', '/32/').replace('/64/', '/32/');
   }
 
   // 2. Optimize Cloudinary URLs
@@ -32,7 +32,7 @@ export function optimizeImageUrl(url: string, width?: number): string {
     try {
       const urlObj = new URL(url);
       urlObj.searchParams.set('auto', 'format');
-      urlObj.searchParams.set('q', '80');
+      urlObj.searchParams.set('q', '70');
       if (width) {
         urlObj.searchParams.set('w', width.toString());
       } else if (!urlObj.searchParams.has('w')) {
@@ -43,7 +43,7 @@ export function optimizeImageUrl(url: string, width?: number): string {
       // Fallback regex replacement if URL construction fails
       let optimized = url;
       if (!optimized.includes('auto=')) optimized += '&auto=format';
-      if (!optimized.includes('q=')) optimized += '&q=80';
+      if (!optimized.includes('q=')) optimized += '&q=70';
       if (!optimized.includes('w=')) optimized += `&w=${width || 1200}`;
       return optimized;
     }
