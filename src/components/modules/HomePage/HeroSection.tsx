@@ -6,6 +6,7 @@ import {
   Phone,
   UserRound,
 } from "lucide-react";
+import heroImage from "../../../assets/images/hero/hero.webp";
 
 import { useState, lazy, Suspense } from "react";
 const DatePicker = lazy(async () => {
@@ -60,15 +61,14 @@ function HeroSection() {
       {/* Background Image Wrapper */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
         <img
-          src={optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1600)}
-          srcSet={`${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 600)} 600w,
-                   ${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1200)} 1200w,
-                   ${optimizeImageUrl('https://images.unsplash.com/photo-1541339907198-e08756dedf3f', 1600)} 1600w`}
-          sizes="100vw"
-          alt="Global Education Background"
-          className="w-full h-full object-cover object-center opacity-[0.38] transition-opacity duration-1000"
-          fetchPriority="high"
-        />
+  src="/hero.webp"
+  alt="Global Education Background"
+  width={1920}
+  height={1080}
+  fetchPriority="high"
+  decoding="async"
+  className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+/>
         {/* Soft edge blending gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#f5f7fb] via-[#f5f7fb]/90 to-transparent md:from-[#f5f7fb] md:via-[#f5f7fb]/80 md:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#f5f7fb] via-transparent to-[#f5f7fb]/10" />

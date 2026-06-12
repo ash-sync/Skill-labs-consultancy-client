@@ -15,7 +15,7 @@ if (!fs.existsSync(htmlPath)) {
 
 let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-// 1. Inline critical CSS
+// Find CSS link tag: <link rel="stylesheet" crossorigin href="/assets/index-*.css">
 const cssLinkRegex = /<link\s+rel="stylesheet"\s+crossorigin\s+href="\/assets\/index-([^"]+)\.css">/i;
 const match = htmlContent.match(cssLinkRegex);
 
@@ -27,12 +27,17 @@ if (match) {
     console.log(`Inlining CSS: ${cssFilename}`);
     let cssContent = fs.readFileSync(cssPath, 'utf8');
 
+    // Fix relative font URLs (e.g. url(./geist...) -> url(/assets/geist...))
     cssContent = cssContent.replace(/url\(\s*['"]?\.\/([^'"]+)\s*['"]?\)/g, 'url(/assets/$1)');
+
+    // Set font-display to optional for Geist fonts to completely eliminate font-swap layout shifts
     cssContent = cssContent.replace(/font-display\s*:\s*swap/gi, 'font-display: optional');
 
+    // Replace the link tag with inlined style
     const styleTag = `<style>${cssContent}</style>`;
     htmlContent = htmlContent.replace(match[0], styleTag);
 
+    // Resolve hashed font file for preload
     try {
       const assetsDir = path.join(distDir, 'assets');
       if (fs.existsSync(assetsDir)) {
@@ -52,6 +57,10 @@ if (match) {
       console.warn(`Warning dynamic font preload mapping failed: ${e.message}`);
     }
 
+    fs.writeFileSync(htmlPath, htmlContent, 'utf8');
+    console.log('Successfully inlined CSS into dist/index.html!');
+
+    // Delete the physical CSS file to avoid extra request
     try {
       fs.unlinkSync(cssPath);
       console.log(`Deleted unused asset: ${cssPath}`);
@@ -64,21 +73,3 @@ if (match) {
 } else {
   console.log('No matching index CSS link tag found in dist/index.html.');
 }
-
-// 2. Defer the render-blocking datepicker CSS to non-blocking async load.
-// The datepicker CSS is only needed after the user interacts with the date field.
-// media="print" trick: loads async without blocking paint; onload switches to "all".
-const datepickerCssRegex = /<link\s+rel="stylesheet"\s+crossorigin\s+href="(\/assets\/vendor-datepicker-[^"]+\.css)">/i;
-const dpMatch = htmlContent.match(datepickerCssRegex);
-if (dpMatch) {
-  const href = dpMatch[1];
-  const asyncLoad = `<link rel="preload" as="style" href="${href}" onload="this.onload=null;this.rel='stylesheet'">\n    <noscript><link rel="stylesheet" href="${href}"></noscript>`;
-  htmlContent = htmlContent.replace(dpMatch[0], asyncLoad);
-  console.log('Datepicker CSS converted to non-blocking async load.');
-} else {
-  console.log('No datepicker CSS link found (may already be deferred).');
-}
-
-// 3. Write final HTML
-fs.writeFileSync(htmlPath, htmlContent, 'utf8');
-console.log('Successfully processed dist/index.html!');

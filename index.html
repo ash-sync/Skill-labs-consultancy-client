@@ -2,23 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Skill Labs Consultancy is your trusted partner for global education, career counseling, university admissions, and student/work visa assistance." />
-    <!-- Preload Geist font to prevent font-swap CLS -->
-    <link rel="preload" href="/assets/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <!-- DNS prefetch for 3rd party images -->
+
+    <meta
+      name="description"
+      content="Skill Labs Consultancy is your trusted partner for global education, career counseling, university admissions, and student/work visa assistance."
+    />
+
+    <!-- FONT PRELOAD (GOOD FOR CLS) -->
+    <link
+      rel="preload"
+      href="/assets/geist-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- DNS + connection optimization -->
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    <!-- Responsive LCP image preload -->
-    <link rel="preload" as="image"
-          imagesrcset="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&q=80&w=600 600w,
-                       https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&q=80&w=1200 1200w,
-                       https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&q=80&w=1600 1600w"
-          imagesizes="100vw"
-          fetchpriority="high" />
-    <title>skill-labs-consultency</title>
+
+    <!-- 🔥 LCP IMAGE PRELOAD (CRITICAL FIX) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero.webp"
+    />
+
+    <title>Skill Labs Consultancy</title>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
