@@ -15,6 +15,11 @@ export default defineConfig({
     port: 4173,
   },
   build: {
+    modulePreload: {
+      resolveDependencies(_, deps) {
+        return deps.filter(dep => !dep.includes('datepicker'));
+      }
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

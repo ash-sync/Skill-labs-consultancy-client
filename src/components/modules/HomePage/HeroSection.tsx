@@ -8,8 +8,10 @@ import {
 } from "lucide-react";
 
 import { useState, lazy, Suspense } from "react";
-const DatePicker = lazy(() => import("react-datepicker"));
-import "react-datepicker/dist/react-datepicker.css";
+const DatePicker = lazy(async () => {
+  await import("react-datepicker/dist/react-datepicker.css");
+  return import("react-datepicker");
+});
 import { useCreateBookingMutation } from "../../../redux/api/dashboard.api";
 import { toast } from "sonner";
 import { optimizeImageUrl } from "../../../utils/imageOptimizer";
