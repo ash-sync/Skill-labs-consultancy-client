@@ -15,7 +15,7 @@ function ProcessSection() {
     Our Process
   </p>
 
-  <h2 className="text-center text-4xl font-bold text-orange-500 mb-14">
+  <h2 className="text-center text-4xl font-bold text-[#C2410C] mb-14">
     Your One-Stop Solution
   </h2>
 
@@ -44,7 +44,7 @@ function ProcessSection() {
           Assessment Service
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           We evaluate your profile and suggest the best options.
         </p>
       </div>
@@ -75,7 +75,7 @@ function ProcessSection() {
           File Processing
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           We prepare and verify your documents carefully.
         </p>
       </div>
@@ -106,7 +106,7 @@ function ProcessSection() {
           Visa Processing
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           Expert guidance for smooth visa application.
         </p>
       </div>
@@ -137,7 +137,7 @@ function ProcessSection() {
           Processing Updates
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           Stay updated with real-time updates on your application.
         </p>
       </div>
@@ -168,7 +168,7 @@ function ProcessSection() {
           SOP Writing
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           Professional SOPs that highlights your strengths.
         </p>
       </div>
@@ -199,7 +199,7 @@ function ProcessSection() {
           Scholarship/Waiver
         </h3>
 
-        <p className="text-xs text-gray-500 mt-2 leading-5">
+        <p className="text-xs text-gray-700 mt-2 leading-5">
           We help you get scholarships and fee waivers.
         </p>
       </div>

@@ -14,7 +14,7 @@ function PartnersSection() {
             Our Partners
           </p>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-poppins text-[#F97316]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-poppins text-[#C2410C]">
             Universities & Partners
           </h2>
         </div>

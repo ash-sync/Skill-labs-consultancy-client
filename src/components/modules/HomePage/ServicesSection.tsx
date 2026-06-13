@@ -24,7 +24,7 @@ function ServicesSection() {
           What We Offer
         </p>
 
-        <h2 className="text-center text-4xl font-bold text-orange-500 mb-12">
+        <h2 className="text-center text-4xl font-bold text-[#C2410C] mb-12">
           Our Core Services
         </h2>
 

@@ -8,11 +8,11 @@ function Destinations() {
   return (
     <div className="bg-gray-100 py-12 px-4">
 
-      <p className="text-center text-xs uppercase tracking-widest text-orange-400 font-semibold">
+      <p className="text-center text-xs uppercase tracking-widest text-[#C2410C] font-semibold">
         Popular Destinations
       </p>
 
-      <h2 className="text-center text-3xl font-bold text-orange-500 mb-10">
+      <h2 className="text-center text-3xl font-bold text-[#C2410C] mb-10">
         Study & Work Destinations
       </h2>
 
@@ -93,7 +93,7 @@ function Destinations() {
                   </div>
                 </div>
 
-                <button className="mt-5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2 rounded-lg transition duration-300 w-full">
+                <button className="mt-5 bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-semibold py-2 rounded-lg transition duration-300 w-full cursor-pointer">
                   Explore Now
                 </button>
 

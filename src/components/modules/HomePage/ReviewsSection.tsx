@@ -13,7 +13,7 @@ function ReviewsSection() {
          <p className="text-[10px] text-center sm:text-xs font-bold tracking-[3px] uppercase text-[#2563EB] mb-2">
             Student Stories
           </p>
-      <h2 className="text-center text-orange-500 text-2xl font-bold mb-8">
+      <h2 className="text-center text-[#C2410C] text-2xl font-bold mb-8">
         What our Students say
       </h2>
 

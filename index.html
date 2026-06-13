@@ -12,7 +12,9 @@
       content="Skill Labs Consultancy is your trusted partner for global education, career counseling, university admissions, and student/work visa assistance."
     />
 
-    <!-- FONT PRELOAD (GOOD FOR CLS) -->
+    <title>Skill Labs Consultancy</title>
+
+    <!-- 🔥 PRELOAD FONT (good for CLS) -->
     <link
       rel="preload"
       href="/assets/geist-latin-wght-normal.woff2"
@@ -21,22 +23,30 @@
       crossorigin
     />
 
-    <!-- DNS + connection optimization -->
+    <!-- 🔥 PRELOAD HERO IMAGE (critical for LCP) -->
+    <link rel="preload" as="image" href="/hero.webp" />
+
+    <!-- 🔥 DNS + connection hints -->
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
-    <!-- 🔥 LCP IMAGE PRELOAD (CRITICAL FIX) -->
+    <!-- ⚡ NON-BLOCKING CSS LOADING (IMPORTANT FIX) -->
     <link
-      rel="preload"
-      as="image"
-      href="/hero.webp"
+      rel="stylesheet"
+      href="/assets/vendor.css"
+      media="print"
+      onload="this.media='all'"
     />
 
-    <title>Skill Labs Consultancy</title>
+    <noscript>
+      <link rel="stylesheet" href="/assets/vendor.css" />
+    </noscript>
   </head>
 
   <body>
     <div id="root"></div>
+
+    <!-- 🚀 React entry -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

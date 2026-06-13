@@ -17,36 +17,9 @@ export default defineConfig({
   },
 
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            // React core (small but critical)
-            if (
-              id.includes("react") ||
-              id.includes("react-dom")
-            ) {
-              return "vendor-react";
-            }
+    // 🔥 FIX render-blocking CSS
+    cssCodeSplit: false,
 
-            // Router (not needed for initial paint)
-            if (id.includes("react-router")) {
-              return "vendor-router";
-            }
-
-            // Redux (state management)
-            if (
-              id.includes("@reduxjs/toolkit") ||
-              id.includes("react-redux")
-            ) {
-              return "vendor-redux";
-            }
-
-            // Everything else (safe fallback)
-            return "vendor";
-          }
-        },
-      },
-    },
+    target: "esnext",
   },
 });

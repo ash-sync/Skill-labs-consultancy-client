@@ -24,7 +24,7 @@ function StatsSection() {
             500+
           </h2>
 
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-white">
             Students placed
           </p>
         </div>
@@ -42,7 +42,7 @@ function StatsSection() {
             95%
           </h2>
 
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-white">
             Visa success rate
           </p>
         </div>
@@ -60,7 +60,7 @@ function StatsSection() {
             10+
           </h2>
 
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-white">
             Partner Countries
           </p>
         </div>
@@ -78,7 +78,7 @@ function StatsSection() {
             5+
           </h2>
 
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-white">
             Years experience
           </p>
         </div>

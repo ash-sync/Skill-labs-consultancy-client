@@ -3,6 +3,7 @@ import "./App.css";
 import CommonLayout from "./components/layout/CommonLayout";
 import { Outlet } from "react-router";
 import { Loader2 } from "lucide-react";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           }
         >
           <Outlet />
+          <Footer />
         </Suspense>
       </CommonLayout>
     </>

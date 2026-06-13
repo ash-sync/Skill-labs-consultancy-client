@@ -15,12 +15,12 @@ if (!fs.existsSync(htmlPath)) {
 
 let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-// Find CSS link tag: <link rel="stylesheet" crossorigin href="/assets/index-*.css">
-const cssLinkRegex = /<link\s+rel="stylesheet"\s+crossorigin\s+href="\/assets\/index-([^"]+)\.css">/i;
+// Find CSS link tag: <link rel="stylesheet" crossorigin href="/assets/*.css">
+const cssLinkRegex = /<link\s+rel="stylesheet"\s+crossorigin\s+href="\/assets\/([^"]+)\.css">/i;
 const match = htmlContent.match(cssLinkRegex);
 
 if (match) {
-  const cssFilename = `index-${match[1]}.css`;
+  const cssFilename = `${match[1]}.css`;
   const cssPath = path.join(distDir, 'assets', cssFilename);
 
   if (fs.existsSync(cssPath)) {

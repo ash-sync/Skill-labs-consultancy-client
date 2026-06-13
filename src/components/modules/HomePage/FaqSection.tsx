@@ -80,9 +80,9 @@ FAQs
             </div>
 
             <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg border border-gray-100 w-full max-w-[280px]">
-              <h4 className="font-poppins font-extrabold text-dark text-lg mb-2">
+              <h3 className="font-poppins font-extrabold text-dark text-lg mb-2">
                 Still have questions?
-              </h4>
+              </h3>
 
               <p className="text-gray-500 text-sm leading-relaxed mb-5">
                 Our team is here to help you every step of the way.
